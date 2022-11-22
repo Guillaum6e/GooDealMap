@@ -9,6 +9,7 @@
         </title>
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
         {{ encore_entry_link_tags('headerCss') }}
+        {{ encore_entry_link_tags('footerCss') }}
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
         {% endblock %}
@@ -19,6 +20,8 @@
     </head>
     <body>
         {% include 'Components/_header.html.twig' %}
-        {% block body %}{% endblock %}
+        {% block body %}
+        {% endblock %}
+        {% include 'Components/_footer.html.twig' %} 
     </body>
 </html>
