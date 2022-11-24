@@ -27,7 +27,7 @@
     text-decoration: none;
     color: var(--color-primary);
     font-size: var(--font-size-card-footer);
-    line-height: calc(var(--height-footer) + 1px);
+    // line-height: calc(var(--height-footer) + 1px);
 }
 
 .li-footer {
@@ -44,7 +44,7 @@
 
 @media (max-width: 1090px) {
     .global-footer {  
-        height: 100px;
+        height: 20vh;
     }
     .ul-footer{
         margin: initial;
