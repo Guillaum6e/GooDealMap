@@ -1,0 +1,165 @@
+/* styles for About us page */
+.about h1 {
+    padding-top: var(--padding-card);
+    text-shadow:
+        -0 -1px 0 var(--color-secondary),
+        0 -1px 0 var(--color-secondary),
+        -0 1px 0 var(--color-secondary),
+        0 1px 0 var(--color-secondary),
+        -1px -0 0 var(--color-secondary),
+        1px -0 0 var(--color-secondary),
+        -1px 0 0 var(--color-secondary),
+        1px 0 0 var(--color-secondary),
+        -1px -1px 0 var(--color-secondary),
+        1px -1px 0 var(--color-secondary),
+        -1px 1px 0 var(--color-secondary),
+        1px 1px 0 var(--color-secondary),
+        -1px -1px 0 var(--color-secondary),
+        1px -1px 0 var(--color-secondary),
+        -1px 1px 0 var(--color-secondary),
+        1px 1px 0 var(--color-secondary);
+    margin: 0 auto calc(1.5*var(--padding-card));
+}
+
+.container-about {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+}
+
+.container-about .text {
+    align-self: flex-start;
+    width: var(--width-about-text);
+    font-size: var(--font-size-card-header);
+    font-family: var(--font-primary-regular);
+    background-color: var(--color-secondary);
+    border-radius: 20px;
+    text-align: justify;
+    padding: var(--padding-card);
+    min-width: 300px;
+    line-height: calc(1.5*var(--font-size-card-header));
+    margin-left: var(--padding-card);
+    margin-top: -10px;
+}
+
+.container-about .text h2 {
+    text-align: center;
+    margin: 0 auto calc(var(--font-size-card-header));
+}
+
+span.devs {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+span.dev {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    width: var(--width-photo-dev);
+    flex-wrap: wrap;
+    margin: -10px 25px;
+}
+
+.devs .dev-ava {
+    width: var(--width-photo-dev);
+    height: var(--width-photo-dev);
+    border-radius: 50%;
+    border: 0.5px solid var(--color-primary);
+    object-fit: cover;
+}
+
+.dev a.over {
+    display: block;
+    position: relative;
+    width: var(--width-photo-dev);
+    height: var(--width-photo-dev);
+    border-radius: 50%;
+}
+
+.dev a.over:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, .5);
+    opacity: 0;
+    border-radius: 50%;
+}
+
+.dev a.over:hover:after {
+    opacity: 1;
+}
+
+
+.devs .name,
+.devs span.icon {
+    opacity: 0;
+    width: var(--card-icon-width);
+    height: var(--card-icon-width);
+    display: inline-block;
+}
+
+.devs span.icon img {
+    width: 23px;
+    height: 23px;
+}
+
+.devs .name {
+    transition-duration: 0.7s;
+    font-family: var(--font-primary-bold);
+    font-size: var(--font-size-card-header);
+    color: var(--color-secondary);
+    width: var(--width-photo-dev);
+}
+
+.devs .icon.git {
+    transition-duration: 1.2s;
+    margin-right: calc(2*var(--padding-line));
+}
+
+.devs .icon.linkedin {
+    transition-duration: 2s;
+    margin-left: calc(2*var(--padding-line));
+}
+
+
+.dev:hover .name,
+.dev:hover .icon.git,
+.dev:hover .icon.linkedin {
+    transform-origin: center bottom;
+    transform: translateY(-60px);
+    opacity: 1;
+    z-index: 10;
+}
+
+.svg-background {
+    width: 24px;
+    height: 24px;
+    background-color: #fff;
+    display: inline-block;
+    mask-image: url("/assets/images/icons/github1.svg");
+}
+
+@media (max-width: 880px) {
+    .container-about {
+        flex-direction: column;
+    }
+
+    .container-about .text {
+        align-self: center;
+        margin: 0 0 var(--padding-card);
+    }
+}
+
+@media (min-width: 1300px) {
+    span.devs {
+        width: calc(3*var(--width-photo-dev) + 340px);
+    }
+}
