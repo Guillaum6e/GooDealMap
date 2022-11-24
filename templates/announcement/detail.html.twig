@@ -1,0 +1,39 @@
+{% extends 'layout.html.twig' %}
+	{% block title %} {{ parent() }} - {{announcement.title}}
+    {% endblock %}
+    {% block stylesheet%}
+        <link rel="stylesheet" href="/assets/css/blur.css">
+        <link rel="stylesheet" href="/assets/css/announcement.css">
+        <link rel="stylesheet" href="/assets/css/card.css">
+    {% endblock %}
+{% block content %}
+    <main class="card-container">
+        <div class="container-single">
+        <div class="single-card-header">
+            {% if announcement.ref %}
+                <span class="flash-left"><a href="{{announcement.ref}}" class="svg-background"></a></span>
+            {% endif %}
+            {% include 'Components/_button.html.twig' %}
+        </div>
+            <article class="card" >
+                <div class="card-header">
+                    <h2>{{announcement.title}}</h2>
+                </div>
+                <div class="card-date-city">
+                    <span class="author-line">De {{announcement.firstname}} {{announcement.lastname}}</span>
+                    <span class="date">{% if announcement.date_start %}Du {{announcement.date_start|date('d M')}}{% endif %} -
+                    {% if announcement.date_end %}{{announcement.date_end|date('d M Y')}}{% endif %}</span>
+                    <span class="city">{{announcement.city}}</span>
+                </div>
+                <div class="card-info">
+                    <span class="card-image">
+                        <img src="/assets/images/cards/{{announcement.image}}" alt="{{announcement.title}}"/>
+                    </span>
+                    <span class="card-text">
+                        {{announcement.message}}
+                    </span>
+                </div>
+            </article>
+        </div>
+    </main>
+{% endblock %}
