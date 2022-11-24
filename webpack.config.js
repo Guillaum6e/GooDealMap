@@ -26,11 +26,11 @@ Encore
         // pattern: /\.(png|jpg|jpeg)$/
     })
     /*
-     * ENTRY CONFIG
-     *
-     * Each entry will result in one JavaScript file (e.g. app.js)
-     * and one CSS file (e.g. app.css) if your JavaScript imports CSS.
-     */
+    * ENTRY CONFIG
+    *
+    * Each entry will result in one JavaScript file (e.g. app.js)
+    * and one CSS file (e.g. app.css) if your JavaScript imports CSS.
+    */
     /*JS*/
     .addEntry('app', './assets/app.js')
     .addEntry('headerJs', './assets/javascript/header.js')
@@ -74,15 +74,15 @@ Encore
     // uncomment if you use TypeScript
     // .enableTypeScriptLoader()
 
-    // uncomment if you use React
-    // .enableReactPreset()
+// uncomment if you use React
+// .enableReactPreset()
 
-    // uncomment to get integrity="..." attributes on your script & link tags
-    // requires WebpackEncoreBundle 1.4 or higher
-    // .enableIntegrityHashes(Encore.isProduction())
+// uncomment to get integrity="..." attributes on your script & link tags
+// requires WebpackEncoreBundle 1.4 or higher
+// .enableIntegrityHashes(Encore.isProduction())
 
-    // uncomment if you're having problems with a jQuery plugin
-    // .autoProvidejQuery()
+// uncomment if you're having problems with a jQuery plugin
+// .autoProvidejQuery()
 
     // enables Sass/SCSS support
     .enableSassLoader();
