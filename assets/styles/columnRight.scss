@@ -1,0 +1,166 @@
+/*CSS Colum review +Button add GooDeals*/
+@media only screen and (min-width: 1100px) {
+    h2{
+        font-size: 1rem;
+    }
+    .last-news {
+        width: 270px;
+        height: 100vh;
+         background-color: var(--color-secondary);
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+        }
+
+    .column {
+        margin-top: 12vh;
+    }
+
+    .btn-goodeals {
+        margin-top: 30px;
+    }
+
+    .btn-goodeals:hover {
+        background-color: var(--color-secondary);
+        color: var(--color-primary);
+        border: solid 1px var(--color-primary);
+    }
+
+    /*Card Column right CSS*/
+    .right-column {
+        width: 100%;
+        height: 68vh;
+        overflow: auto;
+    }
+
+    .right-column::-webkit-scrollbar {
+        width: 1px;
+    }
+
+    .title-column {
+        font-size: 24px;
+        color: var(--color-primary);
+        text-align: center;
+    }
+
+    .right-card {
+        border-right: 1px solid var(--color-primary);
+        border-bottom: 1px solid var(--color-primary);
+        border-left:   1px solid var(--color-primary);
+        max-width: 199px;
+        max-height: 217px;
+        margin-top: 20px;
+        // box-shadow: 0px 0px 10px 0px var(--color-primary);
+        
+        
+    }
+
+    
+
+    .header-card {
+        font-size: 22px;
+        text-align: center;
+        background-color: var(--color-primary);
+        color: var(--color-secondary);
+        height: 45px;
+        
+    }
+
+    .right-card a {
+        text-decoration: none;
+    }
+
+    .header-card i {
+        font-size: 14px;
+    }
+    
+    .body-card img { 
+        padding: 4px;
+        box-sizing: content-box;
+        width: 191px;
+        height: 164px;
+        text-align: center;
+        background-size: cover;
+       
+    }
+   
+    ::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+    @media only screen and (max-width: 1100px) {
+    
+        h2{
+            font-size: 1rem;
+        }
+       ul,li{
+            text-decoration: none;
+        }
+        .last-news {
+            width: 100%;
+            
+            background-color: var(--color-secondary);
+            display: flex;
+            flex-direction: row;
+            align-items: center;  
+        }
+        /*Caroussel CSS*/
+            .right-column {
+            display: flex;
+            flex-direction: row;
+            max-width: 100%;
+            overflow-x: scroll;  
+        }
+        .right-card {
+            max-width: 199px;
+            max-height: 217px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0px 0px 10px 0px var(--color-primary);
+            flex: 1 0 200px;
+            margin-left: 1rem;
+            // scroll-snap-align: start; 
+        }
+        .column{
+            width: 100%;
+            margin-top: initial;
+        }
+
+        .right-card a {
+            text-decoration: none;
+        }
+        .right-column::-webkit-scrollbar {
+        width: 0px;
+        }
+        .right-column::-webkit-scrollbar-track {
+            background: var(--color-secondary);
+        }
+        .title-column {
+            height: 100%;
+            margin-left: 10px;
+            margin-top: 20px;
+            font-size: 24px;
+            color: var(--color-primary);
+            text-align: center;
+        }
+        .header-card {
+            font-size: 22px;
+            text-align: center;
+            background-color:var(--color-primary);
+            color: var(--color-secondary);
+            align-items: center;
+            height: 45px;
+        } 
+        .header-card i {
+            font-size: 14px;
+        } 
+        .body-card img {
+            padding: 4px;
+            width: 191px;
+            height: 164px;
+            text-align: center;
+            background-size: cover;
+        }
+
+}
