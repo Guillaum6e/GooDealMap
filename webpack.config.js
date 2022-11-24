@@ -39,7 +39,11 @@ Encore
     .addEntry('headerCss', './assets/styles/header.scss')
     .addEntry('footerCss', './assets/styles/footer.scss')
     .addEntry('announcementCss', './assets/styles/announcement.scss')
-
+    .addEntry('map', './assets/styles/map.scss')
+    .addEntry('columnRight', './assets/styles/columnRight.scss')
+    .addEntry('blur', './assets/styles/blur.scss')
+    .addEntry('about', './assets/styles/about.scss')
+    
     // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)
     .enableStimulusBridge('./assets/controllers.json')
 
