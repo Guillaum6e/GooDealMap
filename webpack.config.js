@@ -26,23 +26,25 @@ Encore
         // pattern: /\.(png|jpg|jpeg)$/
     })
     /*
-     * ENTRY CONFIG
-     *
-     * Each entry will result in one JavaScript file (e.g. app.js)
-     * and one CSS file (e.g. app.css) if your JavaScript imports CSS.
-     */
+    * ENTRY CONFIG
+    *
+    * Each entry will result in one JavaScript file (e.g. app.js)
+    * and one CSS file (e.g. app.css) if your JavaScript imports CSS.
+    */
     /*JS*/
     .addEntry('app', './assets/app.js')
     .addEntry('headerJs', './assets/javascript/header.js')
 
     /*CSS*/
     .addEntry('headerCss', './assets/styles/header.scss')
+    .addEntry('legalCss', './assets/styles/legal.scss')
     .addEntry('footerCss', './assets/styles/footer.scss')
+    .addEntry('errorCss', './assets/styles/error.scss')
     .addEntry('map', './assets/styles/map.scss')
     .addEntry('columnRight', './assets/styles/columnRight.scss')
     .addEntry('blur', './assets/styles/blur.scss')
     .addEntry('about', './assets/styles/about.scss')
-    
+
     // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)
     .enableStimulusBridge('./assets/controllers.json')
 

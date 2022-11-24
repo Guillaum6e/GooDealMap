@@ -1,0 +1,15 @@
+main.error-404 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 75vh;
+}
+
+.error-404 div {
+    background: url('/assets/images/error404.png') no-repeat;
+    background-size: contain;
+    background-position: center;
+    width: 70%;
+    height: 70%;
+}
