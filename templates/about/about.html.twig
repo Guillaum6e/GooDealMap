@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{parent()}} - A propos
+{% endblock %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('blur') }}
+    {{ encore_entry_link_tags('about') }}
+{% endblock %}
+
+{% block body %}
+    <main class="about">
+    <h1 class="about">Qui nous sommes </h1>
+    <div class="container-about">
+        <div class="text">
+        <h2>Salut !</h2>
+        <p>Nous sommes une équipe de 5 devs-voyagers.
+            On apprecie le bon pain (et le vin) ainsi que les bon jeux du cirque.
+            C'est pourquoi on a crée ce site.<br/>Bon courage et bon voyage !
+        </p>
+        </div>
+        <span class="devs">
+            {# {% for dev in devs %} #}
+            <span class="dev">
+                <a href="#" class="over"><img class="dev-ava" src="" /></a>
+                <span class="name">Franck</span>
+                <span class="icon git"><a target="_blank" href="" class="svg-background"></a></span>
+                <span class="icon linkedin"><a target="_blank" href=""><img class="icon" src="" /></a></span>
+            </span>
+            {# {% endfor %} #}
+        </span>
+    </div>
+    </main>
+{% endblock %}
