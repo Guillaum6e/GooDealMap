@@ -1,6 +1,6 @@
 <header class="global-header">
 	<div class="nav-header">
-		<a href="/home" class="title">
+		<a href="{{ path("app_home") }}" class="title">
 			GooDealMap</a>
 
 		<nav class="menu-burger">
@@ -9,7 +9,7 @@
 			</a>
 			<ul class="ul-header">
 				<li>
-					<a href="/about" class="a-header">Notre concept</a>
+					<a href="{{ path("about_index") }}" class="a-header">Notre concept</a>
 				</li>
 				<li>
 					<a href="/connexion" class="a-header">Connexion</a>
@@ -22,10 +22,12 @@
 	</div>
 
 	<div class="search">
-		<img src="{{ asset('build/images/icons/search-icon.png') }}"alt="search-icon" class="search-icon"/>
+		<img src="{{ asset('build/images/icons/search-icon.png') }}" alt="search-icon" class="search-icon"/>
 		<input class="searchbar" onchange="search_GooDeal()" type="text" id="search" placeholder="Rechercher un GooDeal...">
 	</div>
-	<a href="/about" class="a-header undisplay-responsive">Notre concept</a>
+	<a href="{{ path("about_index") }}" class="a-header undisplay-responsive">Notre concept</a>
+	<a href="/about" class="a-header undisplay-responsive">Inscription</a>
+	<a href="/about" class="a-header undisplay-responsive">Connexion</a>
 </header>
 
 {% block javascript %}
