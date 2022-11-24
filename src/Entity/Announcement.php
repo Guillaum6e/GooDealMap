@@ -14,9 +14,6 @@ class Announcement
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column]
-    private ?int $region = null;
-
     #[ORM\Column(length: 50)]
     private ?string $title = null;
 
@@ -25,9 +22,6 @@ class Announcement
 
     #[ORM\Column(length: 255)]
     private ?string $address = null;
-
-    #[ORM\Column]
-    private ?int $author = null;
 
     #[ORM\Column(length: 20)]
     private ?string $category = null;
@@ -50,17 +44,25 @@ class Announcement
     #[ORM\Column]
     private ?int $zipcode = null;
 
+    #[ORM\ManyToOne(inversedBy: 'announcements')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Region $region = null;
+
+    #[ORM\ManyToOne(inversedBy: 'announcements')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Author $author = null;
+
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getRegion(): ?int
+    public function getRegion(): ?Region
     {
         return $this->region;
     }
 
-    public function setRegion(int $region): self
+    public function setRegion(?Region $region): self
     {
         $this->region = $region;
 
@@ -103,12 +105,12 @@ class Announcement
         return $this;
     }
 
-    public function getAuthor(): ?int
+    public function getAuthor(): ?Author
     {
         return $this->author;
     }
 
-    public function setAuthor(int $author): self
+    public function setAuthor(?Author $author): self
     {
         $this->author = $author;
 
