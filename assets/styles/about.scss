@@ -94,12 +94,12 @@ span.dev {
 }
 
 .dev a.over:hover:after {
-    opacity: 1;
+    opacity: 1
 }
 
-
 .devs .name,
-.devs span.icon {
+.devs .icon-git,
+.devs .icon-linkedin {
     opacity: 0;
     width: var(--card-icon-width);
     height: var(--card-icon-width);
@@ -111,7 +111,8 @@ span.dev {
     height: 23px;
 }
 
-.devs .name {
+.devs .name 
+{
     transition-duration: 0.7s;
     font-family: var(--font-primary-bold);
     font-size: var(--font-size-card-header);
@@ -119,20 +120,20 @@ span.dev {
     width: var(--width-photo-dev);
 }
 
-.devs .icon.git {
+.icon-git {
     transition-duration: 1.2s;
     margin-right: calc(2*var(--padding-line));
 }
 
-.devs .icon.linkedin {
+.icon-linkedin {
     transition-duration: 2s;
     margin-left: calc(2*var(--padding-line));
 }
 
 
 .dev:hover .name,
-.dev:hover .icon.git,
-.dev:hover .icon.linkedin {
+.dev:hover .icon-git,
+.dev:hover .icon-linkedin {
     transform-origin: center bottom;
     transform: translateY(-60px);
     opacity: 1;
@@ -141,10 +142,9 @@ span.dev {
 
 .svg-background {
     width: 24px;
-    height: 24px;
-    background-color: #fff;
+    height: 24px;  
     display: inline-block;
-    mask-image: url("/assets/images/icons/github1.svg");
+    
 }
 
 @media (max-width: 880px) {
