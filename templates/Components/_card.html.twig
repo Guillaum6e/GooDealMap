@@ -1,9 +1,9 @@
 <li class="card-container">
 	<a class="card-single icon edit" href="/addGoodeal/edit?id={{announcement.id}}">
-		<span class="icon edit"><img class="edit" src="/assets/images/icons/edit.svg" alt="Modifier"/></span>
+		<span class="icon edit"><img class="edit" src="{{ asset('build/images/icons/edit.svg') }}" alt="Modifier"/></span>
 	</a>
 	<a class="card-single icon remove" href="/announcements/delete?id={{announcement.id}}" onclick="return confirm('Vous êtes sûr ? Ce sera irréversible');">
-		<span class="icon remove"><img src="/assets/images/icons/remove.png" alt="Supprimer"/></span>
+		<span class="icon remove"><img src="{{ asset('build/images/icons/remove.png') }}" alt="Supprimer"></span>
 	</a>
 	<a href="/announcements/card?id={{announcement.id}}" class="card-single">
 		<article class="card-single">
@@ -13,12 +13,12 @@
 			<div class="card-date-city">
 				<span class="card-date">
 					<span class="">
-						{% if announcement.date_start %}Du
-							{{announcement.date_start|date('d M')}}
+						{% if announcement.dateStart %}Du
+							{{announcement.dateStart|date('d M')}}
 						{% endif %}
 						-
-						{% if announcement.date_end %}
-							{{announcement.date_end|date('d M Y')}}
+						{% if announcement.dateEnd %}
+							{{announcement.dateEnd|date('d M Y')}}
 						{% endif %}
 					</span>
 					<span>Lieu :
@@ -27,7 +27,7 @@
 			</div>
 			<div class="card-info">
 				<div class="card-image">
-					<img src="/assets/images/cards/{{announcement.image}}" alt="{{announcement.title}}"/>
+					<img src="{{ asset('build/images/cards/'~announcement.image~'') }}" alt="{{announcement.title}}"/>
 				</div>
 				<div class="card-text">
 					{{announcement.message}}
@@ -35,8 +35,8 @@
 				<div class="card-see-more">En savoir plus</div>
 				<div class="card-author">
 					<div class="author-line">De
-						<span>{{announcement.firstname}}
-							{{announcement.lastname}}</span>
+						{# <span>{{author.firstname}}
+																																																																																																																																											{{author.lastname}}</span> #}
 					</div>
 				</div>
 			</div>

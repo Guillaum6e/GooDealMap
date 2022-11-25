@@ -15,7 +15,6 @@ Encore
     // .setManifestKeyPrefix('build/')
     .copyFiles({
         from: './assets/images',
-
         // optional target path, relative to the output dir
         // to: 'images/[path][name].[ext]',
 
@@ -39,12 +38,13 @@ Encore
     .addEntry('headerCss', './assets/styles/header.scss')
     .addEntry('legalCss', './assets/styles/legal.scss')
     .addEntry('footerCss', './assets/styles/footer.scss')
-    .addEntry('announcementCss', './assets/styles/announcement.scss')
+    .addEntry('announcement', './assets/styles/announcement.scss')
     .addEntry('errorCss', './assets/styles/error.scss')
     .addEntry('map', './assets/styles/map.scss')
     .addEntry('columnRight', './assets/styles/columnRight.scss')
     .addEntry('blur', './assets/styles/blur.scss')
     .addEntry('about', './assets/styles/about.scss')
+    .addEntry('reset', './assets/styles/reset.scss')
 
     // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)
     .enableStimulusBridge('./assets/controllers.json')

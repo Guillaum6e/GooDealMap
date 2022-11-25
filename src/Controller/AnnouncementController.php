@@ -62,6 +62,7 @@ class AnnouncementController extends AbstractController
 
         // $regions = $regionManager->select();
         $regions = $regionRepo->findAll();
+        //$region = $regionRepo->findById();
         // $announcements = $announcementManager->select($where);
         // $announcementsByRegion = $announcements->getRegion();
 
@@ -80,8 +81,15 @@ class AnnouncementController extends AbstractController
         }
         return $this->render('announcement/index.html.twig', [
             'announcements' => $announcements,
-            'events' => self::EVENTS, /*'active' => $active,*/ 'regions' => $regions, 'selected' => $selected,
-            'numpages' => $numpages, 'where' => $where, 'page' => $page, 'error' => $error
+            'events' => self::EVENTS,
+            /*'active' => $active,*/
+            'regions' => $regions,
+            //'region' => $region,
+            'selected' => $selected,
+            'numpages' => $numpages,
+            'where' => $where,
+            'page' => $page,
+            'error' => $error
         ]);
     }
 
@@ -106,9 +114,31 @@ class AnnouncementController extends AbstractController
         return $this->render('announcement/detail.html.twig', ['announcement' => $announcement]);
     }
 
+
+    /**
+     * List announcements with given region
+     */
+
+    #[Route('/region/{region}', methods: ['GET'], requirements: ['region' => '\d+'], name: 'region')]
+    public function showAnnouncementsByRegion(Region $region): Response
+    {
+        $announcements = $region->getAnnouncements();
+        $events = self::EVENTS;
+        return $this->render(
+            'announcement/index.html.twig',
+            [
+                'region' => $region,
+                'announcements' => $announcements,
+                'events' => $events
+
+            ]
+        );
+    }
+
     /**
      * Delete announcement with given id
      */
+
     #[Route('/delete', methods: ['POST'], requirements: ['id' => '\d+'], name: 'delete')]
     public function delete(AnnouncementRepository $announcementRepo, int $id = 1): void
     {
