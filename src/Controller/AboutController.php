@@ -13,6 +13,6 @@ class AboutController extends AbstractController
     public function index(DevsRepository $devsRepository): Response
     {
         return $this->render('about/about.html.twig', [
-            'abouts' => $devsRepository->findAll(),]);
+            'devs' => $devsRepository->findAll(),]);
     }
 }
