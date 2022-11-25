@@ -10,9 +10,9 @@ use App\Repository\AnnouncementRepository;
 class HomeController extends AbstractController
 {
     #[Route('/', name: 'app_home')]
-    public function index(AnnouncementRepository $announcementRepository): Response
+    public function index(AnnouncementRepository $dealsRepository): Response
     {
         return $this->render('home/index.html.twig', [
-            'announcements' => $announcementRepository->findBy([], limit:4),]);
+            'announcements' => $dealsRepository->findBy([], limit:4),]);
     }
 }
