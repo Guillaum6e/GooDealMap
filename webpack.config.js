@@ -44,6 +44,7 @@ Encore
     .addEntry('columnRight', './assets/styles/columnRight.scss')
     .addEntry('blur', './assets/styles/blur.scss')
     .addEntry('about', './assets/styles/about.scss')
+    .addEntry('login', './assets/styles/login.scss')
 
     // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)
     .enableStimulusBridge('./assets/controllers.json')
