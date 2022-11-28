@@ -7,6 +7,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class ContactType extends AbstractType
 {
@@ -17,7 +18,7 @@ class ContactType extends AbstractType
             'attr' => [
                 'class' => 'form-control',
             ],
-            'label' => 'Titre',
+            'label' => 'Sujet',
             'label_attr' => [
                 'class' => 'form-label'
             ],
@@ -50,11 +51,11 @@ class ContactType extends AbstractType
                     'class' => 'form-label'
                 ],
                 ])
-            ->add('description', TextType::class, [
+            ->add('description', TextareaType::class, [
                 'attr' => [
                     'class' => 'form-control-description',
                 ],
-                'label' => 'Description',
+                'label' => 'Message',
                 'label_attr' => [
                     'class' => 'form-label'
                 ],

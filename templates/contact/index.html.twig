@@ -4,12 +4,15 @@
 
 {% block stylesheets %}
     {{ encore_entry_link_tags('contactCss') }}
-    {{ encore_entry_link_tags('blur') }}
+    {{ encore_entry_link_tags('blurCss') }}
 {% endblock %}
 
 {% block body %}
+
 <main class="container">
-    {{ form_start(form) }}
+
+    {{ form_start(form,{'attr': {'class': 'bg-form'}}) }}
+    <p class="head_form">Un question, une suggestion? Contactez-nous!</p>
     {{ form_widget(form) }}
     <button type="submit" class="submit">Envoyer</button>
     {{ form_end(form) }}
