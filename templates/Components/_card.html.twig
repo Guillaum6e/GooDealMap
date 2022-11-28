@@ -2,7 +2,7 @@
 	<a class="card-single icon edit" href="/addGoodeal/edit?id={{announcement.id}}">
 		<span class="icon edit"><img class="edit" src="{{ asset('build/images/icons/edit.svg') }}" alt="Modifier"/></span>
 	</a>
-	<a class="card-single icon remove" href="/announcements/delete?id={{announcement.id}}" onclick="return confirm('Vous êtes sûr ? Ce sera irréversible');">
+	<a class="card-single icon remove" href="/announcements/delete/{{announcement.id}}" onclick="return confirm('Vous êtes sûr ? Ce sera irréversible');">
 		<span class="icon remove"><img src="{{ asset('build/images/icons/remove.png') }}" alt="Supprimer"></span>
 	</a>
 	<a href="/announcements/card/{{announcement.id}}" class="card-single">
@@ -35,8 +35,8 @@
 				<div class="card-see-more">En savoir plus</div>
 				<div class="card-author">
 					<div class="author-line">De
-						{# <span>{{author.firstname}}
-																																																																																																																																																	{{author.lastname}}</span> #}
+						<span>{{announcement.user.firstname}}
+							{{announcement.user.lastname}}</span>
 					</div>
 				</div>
 			</div>

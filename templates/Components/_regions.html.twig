@@ -1,6 +1,6 @@
 <select class="region" name="region" id="region" autocomplete="off" onclick="this.classList.toggle('opened');" onblur="this.classList.remove('opened');" onchange="javascript:location.href = this.value;">
 	<option class="not-selected" value="0" link="/announcements{% if active != 'tous' %}?category={{active}}{% endif %}">
-		{% if events %}Tous regions{% else %}Choisis region
+		{% if events %}Toutes les régions{% else %}Choisis region
 		{% endif %}
 	</option>
 	{% for region in regions %}

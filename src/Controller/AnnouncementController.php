@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\AnnouncementRepository;
 use App\Repository\RegionRepository;
@@ -87,7 +88,6 @@ class AnnouncementController extends AbstractController
     {
         $announcements = $region->getAnnouncements();
         $regions = $regionRepo->findAll();
-        // if ($announcement['category'] = self::EVENTS[0]) {
 
         return $this->render(
             'announcement/index.html.twig',
@@ -97,7 +97,6 @@ class AnnouncementController extends AbstractController
                 'announcements' => $announcements,
             ]
         );
-        // }
     }
 
     public function showFormAddGoodeal(): string
@@ -106,37 +105,32 @@ class AnnouncementController extends AbstractController
     }
 
     /**
-     * Show one announcement
+     * Show one specific announcement
      */
 
     #[Route('/card/{id}', methods: ['GET'], requirements: ['id' => '\d+'], name: 'show')]
     public function show(AnnouncementRepository $announcementRepo, int $id = 1): Response
     {
         $announcement = $announcementRepo->findOneBy(['id' => $id]);
-        // $announcement = $announcementManager->selectById($id);
-        /* if (isset($_SERVER['HTTP_REFERER'])) {
-            $announcement['ref'] = $_SERVER['HTTP_REFERER'];
-        } */
-        return $this->render('announcement/detail.html.twig', ['announcement' => $announcement]);
-    }
+        $user = $announcement->getUser();
 
-    /**
-     * List announcements with given region
-     */
+        return $this->render('announcement/detail.html.twig', [
+            'announcement' => $announcement,
+            'user' => $user
+        ]);
+    }
 
     /**
      * Delete announcement with given id
      */
 
-    #[Route('/delete', methods: ['POST'], requirements: ['id' => '\d+'], name: 'delete')]
-    public function delete(AnnouncementRepository $announcementRepo, int $id = 1): void
+    #[Route('/delete/{id}', requirements: ['id' => '\d+'], name: 'delete')]
+    public function delete(Request $request, Announcement $announcement, AnnouncementRepository $announcementRepo): Response
     {
-        //$announcementManager = new AnnouncementManager();
-        //$announcementManager->deleteById($id);
+        /* if ($this->isCsrfTokenValid('delete' . $announcement->getId(), $request->request->get('_token'))) {
+        } */
 
-        $announcement = $announcementRepo->findOneBy(['id' => $id]);
-        $announcementRepo->remove($announcement);
-
-        // header('Location: ' . $_SERVER['HTTP_REFERER']);
+        $announcementRepo->remove($announcement, true);
+        return $this->redirectToRoute('app_home', [], Response::HTTP_SEE_OTHER);
     }
 }

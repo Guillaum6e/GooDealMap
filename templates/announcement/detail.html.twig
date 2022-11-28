@@ -15,10 +15,10 @@
 			<div
 				class="single-card-header">
 				{# {% if announcement.ref %}
-					<span class="flash-left">
-						<a href="{{announcement.ref}}" class="svg-background"></a>
-					</span>
-				{% endif %} #}
+									<span class="flash-left">
+										<a href="{{announcement.ref}}" class="svg-background"></a>
+									</span>
+								{% endif %} #}
 				{% include 'Components/_button.html.twig' %}
 			</div>
 			<article class="card">
@@ -27,8 +27,8 @@
 				</div>
 				<div class="card-date-city">
 					<span class="author-line">De
-						{# {{announcement.firstname}}
-						   {{announcement.lastname}} #}
+						{{user.firstname}}
+						{{user.lastname}}
 					</span>
 					<span class="date">
 						{% if announcement.dateStart %}Du
