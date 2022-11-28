@@ -49,7 +49,7 @@ class Announcement
     private ?Region $region = null;
 
 
-    #[ORM\ManyToOne(inversedBy: 'announcement')]
+    #[ORM\ManyToOne(inversedBy: 'announcements')]
     private ?User $user = null;
 
     public function getId(): ?int

@@ -47,11 +47,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $city = null;
 
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: Announcement::class)]
-    private Collection $announcement;
+    private Collection $announcements;
 
     public function __construct()
     {
-        $this->announcement = new ArrayCollection();
+        $this->announcements = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -187,27 +187,27 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @return Collection<int, Announcement>
      */
-    public function getAnnouncement(): Collection
+    public function getAnnouncements(): Collection
     {
-        return $this->announcement;
+        return $this->announcements;
     }
 
-    public function addAnnouncement(Announcement $announcement): self
+    public function addAnnouncements(Announcement $announcements): self
     {
-        if (!$this->announcement->contains($announcement)) {
-            $this->announcement->add($announcement);
-            $announcement->setUser($this);
+        if (!$this->announcements->contains($announcements)) {
+            $this->announcements->add($announcements);
+            $announcements->setUser($this);
         }
 
         return $this;
     }
 
-    public function removeAnnouncement(Announcement $announcement): self
+    public function removeAnnouncements(Announcement $announcements): self
     {
-        if ($this->announcement->removeElement($announcement)) {
+        if ($this->announcements->removeElement($announcements)) {
             // set the owning side to null (unless already changed)
-            if ($announcement->getUser() === $this) {
-                $announcement->setUser(null);
+            if ($announcements->getUser() === $this) {
+                $announcements->setUser(null);
             }
         }
 
