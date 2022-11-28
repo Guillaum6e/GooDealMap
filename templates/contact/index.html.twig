@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {{ parent() }} - Contact{% endblock %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('contactCss') }}
+    {{ encore_entry_link_tags('blur') }}
+{% endblock %}
+
+{% block body %}
+<main class="container">
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button type="submit" class="submit">Envoyer</button>
+    {{ form_end(form) }}
+</main>
+{% endblock %}

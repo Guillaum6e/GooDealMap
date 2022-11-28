@@ -1,0 +1,47 @@
+// .contact-form input[type=text],
+// .contact-form textarea,
+// .contact-form input[type=email]
+body {
+    overflow-x: hidden;
+}
+
+.container {
+    width: 100%;
+    margin-top: 130px;
+}
+
+.form-control, .form-control-description {
+  width: 30%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin: 6px auto 0px auto;
+  display: flex;
+  resize: vertical;
+}
+
+.form-label {
+  width: 100%;
+  display: flex;
+  margin-left: 530px ;
+  margin-top: 20px;
+  color: rgba(34, 65, 81, 1);
+  font-weight: bolder;
+  font-size: 1.5rem;
+  display: block;
+}
+
+.submit {
+  background-color: rgba(34, 65, 81, 1);
+  color: white;
+  padding: 12px 40px;
+  border: none;
+  cursor: pointer;
+  margin: 40px auto 0 auto;
+  display: block;
+  border-radius: 28px;
+}
+
+.submit:hover {
+    background-color: rgba(34, 65, 81, 0.528);
+}
