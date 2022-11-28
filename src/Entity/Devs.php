@@ -25,6 +25,9 @@ class Devs
     #[ORM\Column(length: 100)]
     private ?string $linkedin = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $image = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -74,6 +77,18 @@ class Devs
     public function setLinkedin(string $linkedin): self
     {
         $this->linkedin = $linkedin;
+
+        return $this;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(string $image): self
+    {
+        $this->image = $image;
 
         return $this;
     }

@@ -23,9 +23,6 @@ class Announcement
     #[ORM\Column(length: 255)]
     private ?string $address = null;
 
-    //#[ORM\Column(length: 20)]
-    //private ?string $category = null;
-
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $date = null;
 
@@ -48,9 +45,9 @@ class Announcement
     #[ORM\JoinColumn(nullable: false)]
     private ?Region $region = null;
 
+
     #[ORM\ManyToOne(inversedBy: 'announcements')]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?Author $author = null;
+    private ?User $user = null;
 
     #[ORM\ManyToOne(inversedBy: 'announcements')]
     #[ORM\JoinColumn(nullable: false)]
@@ -105,18 +102,6 @@ class Announcement
     public function setAddress(string $address): self
     {
         $this->address = $address;
-
-        return $this;
-    }
-
-    public function getAuthor(): ?Author
-    {
-        return $this->author;
-    }
-
-    public function setAuthor(?Author $author): self
-    {
-        $this->author = $author;
 
         return $this;
     }
@@ -193,6 +178,17 @@ class Announcement
         return $this;
     }
 
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
+        return $this;
+    }
+
     public function getCategory(): ?Category
     {
         return $this->category;
@@ -201,7 +197,6 @@ class Announcement
     public function setCategory(?Category $category): self
     {
         $this->category = $category;
-
         return $this;
     }
 }
