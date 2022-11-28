@@ -9,12 +9,16 @@
 
 {% block body %}
 
-<main class="container">
+<div class="bg-overf">
+    <main class="container">
 
-    {{ form_start(form,{'attr': {'class': 'bg-form'}}) }}
-    <p class="head_form">Un question, une suggestion? Contactez-nous!</p>
-    {{ form_widget(form) }}
-    <button type="submit" class="submit">Envoyer</button>
-    {{ form_end(form) }}
-</main>
+        {{ form_start(form,{'attr': {'class': 'bg-form'}}) }}
+        <p class="head_form">Un question, une suggestion? Contactez-nous!</p>
+        {{ form_widget(form) }}
+        <button type="submit" class="submit">Envoyer</button>
+        {{ form_end(form) }}
+    </main>
+</div>
+
+
 {% endblock %}

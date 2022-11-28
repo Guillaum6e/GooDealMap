@@ -1,14 +1,10 @@
-body {
+.bg-overf {
     overflow-x: hidden;
 }
 
-form{
-  padding:20px;
-}
 .container {
   width: 100%;
   margin-top: 70px;
-  
 }
 
 .bg-form{
@@ -16,7 +12,8 @@ form{
   width: 80%;
   border-radius: 2%;
   margin: auto;
-  margin-bottom: 50px;  
+  margin-bottom: 50px;
+  padding:20px; 
 }
 
 #contact{
@@ -28,7 +25,6 @@ form{
   color: white;
   font-family: var(--font-primary-regular);
   padding-top: 20px;
-  
 }
 
 .form-control, .form-control-description {
@@ -71,7 +67,6 @@ border-radius: 28px;
   background-color: rgba(34, 65, 81, 0.528);
 }
 
-
 @media screen and (min-width:768px){
   .head_form{
     font-size:20px;
@@ -84,7 +79,6 @@ border-radius: 28px;
   .form-label{
     width:65%;
   }
-
 }
 
 @media screen and (min-width:1024px){
@@ -99,7 +93,6 @@ border-radius: 28px;
   .form-label{
     width:53%
   }
-
 }
 
 @media screen and (min-width:1440px){
