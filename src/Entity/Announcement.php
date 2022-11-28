@@ -48,9 +48,9 @@ class Announcement
     #[ORM\JoinColumn(nullable: false)]
     private ?Region $region = null;
 
+
     #[ORM\ManyToOne(inversedBy: 'announcements')]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?Author $author = null;
+    private ?User $user = null;
 
     public function getId(): ?int
     {
@@ -101,18 +101,6 @@ class Announcement
     public function setAddress(string $address): self
     {
         $this->address = $address;
-
-        return $this;
-    }
-
-    public function getAuthor(): ?Author
-    {
-        return $this->author;
-    }
-
-    public function setAuthor(?Author $author): self
-    {
-        $this->author = $author;
 
         return $this;
     }
@@ -197,6 +185,18 @@ class Announcement
     public function setZipcode(int $zipcode): self
     {
         $this->zipcode = $zipcode;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }
