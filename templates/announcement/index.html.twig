@@ -12,43 +12,45 @@
 {% block body %}
 	<main class="announcement">
 		{% include 'Components/_button.html.twig' %}
-		{# {% include 'Components/_navbar.html.twig' %} #}
-
-		{# 		{% include 'Components/_regions.html.twig' %}
-																																		 #}
-		{# 			<ul class="container"> {% if error %}
-																												<li class="wide">
-																													<p class="error">{{error}}</p>
-																												</li>
-																											{% endif %} #}
+		{% include 'Components/_navbar.html.twig' %}
+		{% include 'Components/_regions.html.twig' %}
+		<ul class="container">
+			{% if error %}
+				<li class="wide">
+					<p class="error">{{error}}</p>
+				</li>
+			{% endif %}
 			{% if announcements %}
 				{% for announcement in announcements %}
-			{% include 'Components/_card.html.twig' %}
-			{% endfor %}
-		{% else %}
-			<li class="wide">
-				<p>Il n'y a encore aucune offre pour ta recherche.<br/>Tu veux en ajouter une ?</p>
-			</li>
-		{% endif %}
-		{# {% if numpages > 1 %}
-																									<div class="pages">
-																										{% if page > 1 %}
-																											<a href="/announcements?{{line}}page={{page-1}}">« prev</a>
-																										{% endif %}
-																										{% for i in 1..numpages %}
-																											<span>
-																												{% if i == page %}
-																													{{i}}
-																												{% else %}
-																													<a href="/announcements?{{line}}page={{i}}">{{i}}</a>
-																												{% endif %}
-																											</span>
-																										{% endfor %}
-																										{% if page < numpages %}
-																											<a href="/announcements?{{line}}page={{page+1}}">suiv »</a>
-																										{% endif %}
-																									</div>
-																									{% endif%} #}
-	</ul>
-</main>{% endblock %}{% block javascript %}
-<script src="/assets/javascript/region.js"></script>{% endblock %}
+					{% include 'Components/_card.html.twig' %}
+				{% endfor %}
+			{% else %}
+				<li class="wide">
+					<p>Il n'y a encore aucune offre pour ta recherche.<br/>Tu veux en ajouter une ?</p>
+				</li>
+			{% endif %}
+			{# {% if numpages > 1 %}
+																																					<div class="pages">
+																																						{% if page > 1 %}
+																																							<a href="/announcements?{{line}}page={{page-1}}">« prev</a>
+																																						{% endif %}
+																																						{% for i in 1..numpages %}
+																																							<span>
+																																								{% if i == page %}
+																																									{{i}}
+																																								{% else %}
+																																									<a href="/announcements?{{line}}page={{i}}">{{i}}</a>
+																																								{% endif %}
+																																							</span>
+																																						{% endfor %}
+																																						{% if page < numpages %}
+																																							<a href="/announcements?{{line}}page={{page+1}}">suiv »</a>
+																																						{% endif %}
+																																					</div>
+																																					{% endif%} #}
+		</ul>
+	</main>
+{% endblock %}
+{% block javascript %}
+	<script src="/assets/javascript/region.js"></script>
+{% endblock %}

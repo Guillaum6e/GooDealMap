@@ -81,7 +81,7 @@ article.card-single h2 {
 }
 
 article.card-single>div {
-    width: 100%;
+    //width: 100%;
     padding: 0 var(--padding-card);
 }
 
@@ -323,7 +323,7 @@ div.pages a {
 
 @media (max-width: 1300px) {
     ul.container {
-        width: calc(2*var(--card-width) + var(--margin-card));
+        width: calc(2*var(--card-width) + 2*var(--margin-card));
     }
 }
 

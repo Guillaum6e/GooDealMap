@@ -10,11 +10,6 @@ use App\Repository\RegionRepository;
 use App\Entity\Announcement;
 use App\Entity\Region;
 
-/* 'announcements' => ['AnnouncementController', 'index',],
-'announcements/card' => ['AnnouncementController', 'show', ['id']],
-'announcements/delete' => ['AnnouncementController', 'delete', ['id']], */
-
-
 #[Route('/announcements', name: 'announcements_')]
 class AnnouncementController extends AbstractController
 {
@@ -27,21 +22,18 @@ class AnnouncementController extends AbstractController
 
     private int $perPage = 3;
 
-    /**
-     * List announcements
-     */
-    #[Route('/', methods: ['GET'], name: 'index')]
-    public function index(AnnouncementRepository $announcementRepo, RegionRepository $regionRepo): Response
+    #[Route('/region/{region}', methods: ['GET'], requirements: ['region' => '\d+'], name: 'region')]
+    public function showAnnouncementsByRegion(Region $region, RegionRepository $regionRepo): Response
     {
-        // $announcementManager = new AnnouncementManager();
-        // $active = 'tous';
-        // $regionManager = new RegionManager();
         $where = [];
         $selected = '';
         $page = 1;
         $error = '';
+        $active = 'tous';
 
-        $announcements = $announcementRepo->findAll();
+        $announcements = $region->getAnnouncements();
+        $regions = $regionRepo->findAll();
+
         if (isset($_GET['search'])) {
             $where['search'] = htmlentities($_GET['search']);
         } else {
@@ -52,20 +44,13 @@ class AnnouncementController extends AbstractController
             if (isset($_GET['category'])) {
                 if (in_array($_GET['category'], self::EVENTS)) {
                     $where['category'] = $_GET['category'];
-                    // $active = $where['category'];
+                    $active = $where['category'];
                 } else {
                     $error .= 'Categorie n\'existe pas'; //throw new \Exception('Categorie n\'existe pas');
                     $where = [];
                 }
             }
         }
-
-        // $regions = $regionManager->select();
-        $regions = $regionRepo->findAll();
-        //$region = $regionRepo->findById();
-        // $announcements = $announcementManager->select($where);
-        // $announcementsByRegion = $announcements->getRegion();
-
 
         $numrows = count($announcements);
         $numpages = ceil($numrows / $this->perPage);
@@ -75,25 +60,46 @@ class AnnouncementController extends AbstractController
             $begin = ($page - 1) * $this->perPage;
             $end = $this->perPage;
             $where['limitQuery'] = ' LIMIT ' . $begin . ',' . $end;
-            //$where['pageURL'] = '&page=' . $where['page'];
-            // $announcements = $announcementManager->select($where);
+            $where['pageURL'] = '&page=' . $where['page'];
             unset($where['limitQuery']);
         }
-        return $this->render('announcement/index.html.twig', [
-            'announcements' => $announcements,
-            'events' => self::EVENTS,
-            /*'active' => $active,*/
-            'regions' => $regions,
-            //'region' => $region,
-            'selected' => $selected,
-            'numpages' => $numpages,
-            'where' => $where,
-            'page' => $page,
-            'error' => $error
-        ]);
+
+        $events = self::EVENTS;
+        return $this->render(
+            'announcement/index.html.twig',
+            [
+                'region' => $region,
+                'regions' => $regions,
+                'announcements' => $announcements,
+                'events' => $events,
+                'active' => $active,
+                'selected' => $selected,
+                'numpages' => $numpages,
+                'where' => $where,
+                'page' => $page,
+                'error' => $error
+            ]
+        );
     }
 
-    //Form add annonce
+    #[Route('/region/{region}/event/{event}', name: 'region/event')]
+    public function showAnnouncementsByEvents(Region $region, RegionRepository $regionRepo): Response
+    {
+        $announcements = $region->getAnnouncements();
+        $regions = $regionRepo->findAll();
+        if ($announcement['category'] = self::EVENTS[0]) {
+
+            return $this->render(
+                'announcement/index.html.twig',
+                [
+                    'region' => $region,
+                    'regions' => $regions,
+                    'announcements' => $announcements,
+                ]
+            );
+        }
+    }
+
     public function showFormAddGoodeal(): string
     {
         return $this->render('announcement/addGoodeal.html.twig');
@@ -114,26 +120,9 @@ class AnnouncementController extends AbstractController
         return $this->render('announcement/detail.html.twig', ['announcement' => $announcement]);
     }
 
-
     /**
      * List announcements with given region
      */
-
-    #[Route('/region/{region}', methods: ['GET'], requirements: ['region' => '\d+'], name: 'region')]
-    public function showAnnouncementsByRegion(Region $region): Response
-    {
-        $announcements = $region->getAnnouncements();
-        $events = self::EVENTS;
-        return $this->render(
-            'announcement/index.html.twig',
-            [
-                'region' => $region,
-                'announcements' => $announcements,
-                'events' => $events
-
-            ]
-        );
-    }
 
     /**
      * Delete announcement with given id
