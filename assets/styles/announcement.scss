@@ -19,8 +19,9 @@ ul.container {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: center;
     column-gap: var(--margin-card);
+    row-gap: 40px;
     margin: auto;
     width: calc(3*var(--card-width) + 2*var(--margin-card));
 }

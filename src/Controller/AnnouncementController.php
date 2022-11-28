@@ -60,7 +60,7 @@ class AnnouncementController extends AbstractController
             $begin = ($page - 1) * $this->perPage;
             $end = $this->perPage;
             $where['limitQuery'] = ' LIMIT ' . $begin . ',' . $end;
-            $where['pageURL'] = '&page=' . $where['page'];
+            // $where['pageURL'] = '&page=' . $where['page'];
             unset($where['limitQuery']);
         }
 
@@ -87,17 +87,17 @@ class AnnouncementController extends AbstractController
     {
         $announcements = $region->getAnnouncements();
         $regions = $regionRepo->findAll();
-        if ($announcement['category'] = self::EVENTS[0]) {
+        // if ($announcement['category'] = self::EVENTS[0]) {
 
-            return $this->render(
-                'announcement/index.html.twig',
-                [
-                    'region' => $region,
-                    'regions' => $regions,
-                    'announcements' => $announcements,
-                ]
-            );
-        }
+        return $this->render(
+            'announcement/index.html.twig',
+            [
+                'region' => $region,
+                'regions' => $regions,
+                'announcements' => $announcements,
+            ]
+        );
+        // }
     }
 
     public function showFormAddGoodeal(): string

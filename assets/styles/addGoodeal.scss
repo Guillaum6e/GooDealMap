@@ -1,0 +1,76 @@
+.form-add input,
+.form-add textarea,
+.form-add input {
+  width: 50%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-top: 6px;
+  margin-bottom: 3px;
+  background-color: white;
+  resize: vertical;
+}
+
+input:hover {
+  background-color: var(--color-secondary);
+  color: var(--color-primary)
+}
+
+label {
+  width: 100%;
+  color: var(--color-secondary);
+  display: block;
+  font-size: 20px;
+  margin-top: 16px;
+  margin-bottom: 5px;
+}
+
+.form-add {
+  height: 100%;
+  width: 100%;
+  padding-bottom: 5px;
+}
+
+#category,
+#region {
+  background-color: white;
+  padding: 6px;
+  width: 52%;
+}
+
+#end-date {
+  color: var(--color-primary);
+}
+
+.btn {
+  background-color: rgba(34, 65, 81, 1);
+  color: var(--color-secondary);
+  padding: 12px 20px;
+  border: none;
+  cursor: pointer;
+  margin-left: 63.5%;
+  display: block;
+  border-radius: 28px;
+  margin-top: 10px;
+}
+
+.form-add {
+  margin-top: 10px;
+  text-align: center;
+  vertical-align: middle;
+  padding: 15px;
+}
+
+h1 {
+  margin-top: 10px;
+}
+
+.txt-form {
+  size: 32px;
+  color: var(--color-secondary);
+  ;
+}
+
+.form-add p.error {
+  padding: 5px 0;
+}

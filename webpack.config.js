@@ -45,6 +45,10 @@ Encore
     .addEntry('blur', './assets/styles/blur.scss')
     .addEntry('about', './assets/styles/about.scss')
     .addEntry('reset', './assets/styles/reset.scss')
+    .addEntry('addGoodDeal', './assets/styles/addGoodeal.scss')
+    .addEntry('card', './assets/styles/card.scss')
+
+
 
     // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)
     .enableStimulusBridge('./assets/controllers.json')
