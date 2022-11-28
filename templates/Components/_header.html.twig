@@ -26,8 +26,13 @@
 		<input class="searchbar" onchange="search_GooDeal()" type="text" id="search" placeholder="Rechercher un GooDeal...">
 	</div>
 	<a href="{{ path("about_index") }}" class="a-header undisplay-responsive">Notre concept</a>
-	<a href="/about" class="a-header undisplay-responsive">Inscription</a>
-	<a href="/about" class="a-header undisplay-responsive">Connexion</a>
+	{% if app.user %}
+	<a href="{{ path("app_logout") }}" class="a-header undisplay-responsive">Me deconnecter</a>
+	<a href="" class="a-header undisplay-responsive">Mon compte</a>
+		{% else %}
+	<a href="{{ path("app_login") }}" class="a-header undisplay-responsive">Me connecter</a>
+	<a href="{{ path("app_register") }}" class="a-header undisplay-responsive">M'inscrire</a>
+	{% endif %}
 </header>
 
 {% block javascript %}
