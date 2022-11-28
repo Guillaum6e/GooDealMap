@@ -113,7 +113,7 @@ class AnnouncementController extends AbstractController
     {
         $announcement = $announcementRepo->findOneBy(['id' => $id]);
         $user = $announcement->getUser();
-
+   
         return $this->render('announcement/detail.html.twig', [
             'announcement' => $announcement,
             'user' => $user

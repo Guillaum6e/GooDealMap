@@ -1,10 +1,10 @@
 <select class="region" name="region" id="region" autocomplete="off" onclick="this.classList.toggle('opened');" onblur="this.classList.remove('opened');" onchange="javascript:location.href = this.value;">
 	<option class="not-selected" value="0" link="/announcements{% if active != 'tous' %}?category={{active}}{% endif %}">
-		{% if events %}Toutes les régions{% else %}Choisis region
+		{% if events %}Toutes les régions{% else %}Choisis ta region
 		{% endif %}
 	</option>
 	{% for region in regions %}
-		<option value="{{region.id}}" link="/announcements?{% if active != 'tous' %}category={{active}}&{% endif %}region_id={{region.id}}" {% if selected==region.id %} selected="selected" {% endif %}>
+		<option value="{{region.id}}" link="/announcements?{% if active != 'tous' %}category={{active}}&{% endif %}region_id={{region.id}}" {% if selected == region.id %} selected="selected" {% endif %}>
 			{{region.regionName}}
 		</option>
 	{% endfor %}
