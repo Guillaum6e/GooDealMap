@@ -23,9 +23,6 @@ class Announcement
     #[ORM\Column(length: 255)]
     private ?string $address = null;
 
-    #[ORM\Column(length: 20)]
-    private ?string $category = null;
-
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $date = null;
 
@@ -48,9 +45,11 @@ class Announcement
     #[ORM\JoinColumn(nullable: false)]
     private ?Region $region = null;
 
-
     #[ORM\ManyToOne(inversedBy: 'announcements')]
     private ?User $user = null;
+
+    #[ORM\ManyToOne(inversedBy: 'announcements')]
+    private ?Category $category = null;
 
     public function getId(): ?int
     {
@@ -101,18 +100,6 @@ class Announcement
     public function setAddress(string $address): self
     {
         $this->address = $address;
-
-        return $this;
-    }
-
-    public function getCategory(): ?string
-    {
-        return $this->category;
-    }
-
-    public function setCategory(string $category): self
-    {
-        $this->category = $category;
 
         return $this;
     }
@@ -197,6 +184,17 @@ class Announcement
     public function setUser(?User $user): self
     {
         $this->user = $user;
+        return $this;
+    }
+
+    public function getCategory(): ?Category
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?Category $category): self
+    {
+        $this->category = $category;
 
         return $this;
     }
