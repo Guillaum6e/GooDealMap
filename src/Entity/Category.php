@@ -21,13 +21,9 @@ class Category
     #[ORM\OneToMany(mappedBy: 'category', targetEntity: Announcement::class)]
     private Collection $announcements;
 
-    #[ORM\OneToMany(mappedBy: 'category', targetEntity: Announcement::class)]
-    private Collection $announcement;
-
     public function __construct()
     {
         $this->announcements = new ArrayCollection();
-        $this->announcement = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -75,13 +71,5 @@ class Category
         }
 
         return $this;
-    }
-
-    /**
-     * @return Collection<int, Announcement>
-     */
-    public function getAnnouncement(): Collection
-    {
-        return $this->announcement;
     }
 }

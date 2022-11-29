@@ -45,11 +45,10 @@ class Announcement
     #[ORM\JoinColumn(nullable: false)]
     private ?Region $region = null;
 
-
     #[ORM\ManyToOne(inversedBy: 'announcements')]
     private ?User $user = null;
 
-    #[ORM\ManyToOne(inversedBy: 'announcement')]
+    #[ORM\ManyToOne(inversedBy: 'announcements')]
     private ?Category $category = null;
 
     public function getId(): ?int
