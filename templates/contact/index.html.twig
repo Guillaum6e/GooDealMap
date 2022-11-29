@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {{ parent() }} - Contact{% endblock %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('contactCss') }}
+    {{ encore_entry_link_tags('blurCss') }}
+{% endblock %}
+
+{% block body %}
+
+<div class="bg-overf">
+    <main class="container">
+
+        {{ form_start(form,{'attr': {'class': 'bg-form'}}) }}
+        <h1 class="head_form">Une question, une suggestion? Contactez-nous!</h1>
+        {{ form_widget(form) }}
+        <button type="submit" class="submit">Envoyer</button>
+        {{ form_end(form) }}
+    </main>
+</div>
+
+
+{% endblock %}
