@@ -19,7 +19,7 @@
         </div>
     {% endif %}
 
-    <h1 class="title-form">Connecte toi</h1>
+    <h1 class="title-form">Connecte-toi</h1>
     
         <label for="inputEmail">Ton mail</Table></label>
    
@@ -43,12 +43,14 @@
             </label>
         </div>
     #}
-<div class="btn-login">
+    <div class="btn-login">
     <button type="submit">
         Connexion
     </button>
-    <button><a href="{{ path('app_register') }}">Inscription</a></button>
-</div>
+    <button>
+        <a href="{{ path('app_register') }}">Inscription</a>
+    </button>
+    </div>
     </div>
 </form>
 </main>
