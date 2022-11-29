@@ -6,8 +6,8 @@
     {{ encore_entry_link_tags('login') }}
 {% endblock %}
 {% block body %}
-<main>
-<form class="form" method="post">
+<main class="main-login">
+<form class="form-login-main" method="post">
     <div class="form-login">
     {% if error %}
         <div class="">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
@@ -21,11 +21,11 @@
 
     <h1 class="title-form">Connecte-toi</h1>
     
-        <label for="inputEmail">Ton mail</Table></label>
+        <label for="inputEmail" class="label-login">Ton mail</Table></label>
    
     <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
     
-        <label for="inputPassword">Ton mot de passe</label>
+        <label for="inputPassword" class="label-login">Ton mot de passe</label>
     
     <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
 
@@ -44,11 +44,11 @@
         </div>
     #}
     <div class="btn-login">
-    <button type="submit">
+    <button type="submit" class="btn">
         Connexion
     </button>
-    <button>
-        <a href="{{ path('app_register') }}">Inscription</a>
+    <button class="btn">
+        <a href="{{ path('app_register') }}" class="a-login">Inscription</a>
     </button>
     </div>
     </div>

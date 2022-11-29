@@ -1,9 +1,7 @@
-.main {
-    
+.main-login {
     box-sizing: border-box;
-   
 }
-.form {
+.form-login-main {
     display: flex;
     justify-content: center;
     padding-top: 10%;
@@ -35,7 +33,7 @@
     text-decoration: var(--color-primary);
 }
 
-input {
+.form-control {
     width: 60%;
     margin: 10px;
     padding: 5px;
@@ -44,7 +42,7 @@ input {
     background-color: var(--color-secondary);
     color: var(--color-primary);
 }
-button {
+.btn {
     text-decoration: none;
     cursor: pointer;
     width: 200px;
@@ -55,15 +53,15 @@ button {
     background-color: var(--color-secondary);
     color: var(--color-primary);
 }
-button:hover {
+.btn:hover {
     
     background-color: var(--color-primary);
     color: var(--color-secondary);
 }
-a:visited {
+.a-login:visited {
     color: var(--color-primary);
   }
-a:hover{
+.a-login:hover{
     color: var(--color-secondary);
   }  
 .btn-login {
@@ -71,7 +69,7 @@ a:hover{
     display: flex;
     flex-direction: column;
 }
-label{
+.label-login{
     font-size: 1em;
     font-weight: bold;
     display: block;
@@ -87,7 +85,7 @@ label{
         margin-top: 50%;
         box-sizing: border-box;
     }
-    button {
+    .btn{
         width: 150px;
     }
 }
