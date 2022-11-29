@@ -99,11 +99,6 @@ class AnnouncementController extends AbstractController
         );
     }
 
-    public function showFormAddGoodeal(): string
-    {
-        return $this->render('announcement/addGoodeal.html.twig');
-    }
-
     /**
      * Show one specific announcement
      */
