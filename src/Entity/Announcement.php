@@ -49,8 +49,7 @@ class Announcement
     #[ORM\ManyToOne(inversedBy: 'announcements')]
     private ?User $user = null;
 
-    #[ORM\ManyToOne(inversedBy: 'announcements')]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\ManyToOne(inversedBy: 'announcement')]
     private ?Category $category = null;
 
     public function getId(): ?int
@@ -197,6 +196,7 @@ class Announcement
     public function setCategory(?Category $category): self
     {
         $this->category = $category;
+
         return $this;
     }
 }

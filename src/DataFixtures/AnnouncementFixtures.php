@@ -70,7 +70,7 @@ class AnnouncementFixtures extends Fixture implements DependentFixtureInterface
         ],
         [
             'slugCategory' => 'category_restaurations',
-            'slugRegion' => 'region_bourgogne-franche-comte',
+            'slugRegion' => 'region_bougogne-franche-comte',
             'slugUser' => '',
             'title' => 'Restaurant Le Kerland',
             'message' => 'Une cuisine généreuse et riche en saveurs à déguster en tête-à-tête',

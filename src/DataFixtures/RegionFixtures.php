@@ -15,7 +15,7 @@ class RegionFixtures extends Fixture
         ],
         [
             'region' => 'Nouvelle-Aquitaine',
-            'slug' => 'new-aquitaine',
+            'slug' => 'nouvelle-aquitaine',
         ],
         [
             'region' => 'Auvergne-Rhône-Alpes',
