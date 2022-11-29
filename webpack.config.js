@@ -46,6 +46,7 @@ Encore
     .addEntry('about', './assets/styles/about.scss')
     .addEntry('login', './assets/styles/login.scss')
     .addEntry('register', './assets/styles/register.scss')
+    .addEntry('addGoodealCss', './assets/styles/addGoodeal.scss')
 
     .addEntry('contactCss', './assets/styles/contact.scss')
     // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)
