@@ -42,11 +42,12 @@ Encore
     .addEntry('errorCss', './assets/styles/error.scss')
     .addEntry('map', './assets/styles/map.scss')
     .addEntry('columnRight', './assets/styles/columnRight.scss')
-    .addEntry('blur', './assets/styles/blur.scss')
+    .addEntry('blurCss', './assets/styles/blur.scss')
     .addEntry('about', './assets/styles/about.scss')
     .addEntry('login', './assets/styles/login.scss')
     .addEntry('register', './assets/styles/register.scss')
 
+    .addEntry('contactCss', './assets/styles/contact.scss')
     // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)
     .enableStimulusBridge('./assets/controllers.json')
 
