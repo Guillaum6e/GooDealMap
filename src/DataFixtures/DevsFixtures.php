@@ -43,7 +43,7 @@ class DevsFixtures extends Fixture
             'linkedin' => 'https://www.linkedin.com/in/tom-henriet/',
             'github' => 'https://github.com/thenriet',
             'image' => 'thomas.jpeg',
-        ]   
+        ]
     ];
 
     public function load(ObjectManager $manager): void
