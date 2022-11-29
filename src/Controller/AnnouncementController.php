@@ -113,7 +113,7 @@ class AnnouncementController extends AbstractController
     {
         $announcement = $announcementRepo->findOneBy(['id' => $id]);
         $user = $announcement->getUser();
-   
+
         return $this->render('announcement/detail.html.twig', [
             'announcement' => $announcement,
             'user' => $user
@@ -125,10 +125,8 @@ class AnnouncementController extends AbstractController
      */
 
     #[Route('/delete/{id}', requirements: ['id' => '\d+'], name: 'delete')]
-    public function delete(Request $request, Announcement $announcement, AnnouncementRepository $announcementRepo): Response
+    public function delete(Announcement $announcement, AnnouncementRepository $announcementRepo): Response
     {
-        /* if ($this->isCsrfTokenValid('delete' . $announcement->getId(), $request->request->get('_token'))) {
-        } */
 
         $announcementRepo->remove($announcement, true);
         return $this->redirectToRoute('app_home', [], Response::HTTP_SEE_OTHER);
