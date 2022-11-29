@@ -11,12 +11,12 @@
   resize: vertical;
 }
 
-input:hover {
+.form-add input:hover {
   background-color: var(--color-secondary);
   color: var(--color-primary)
 }
 
-label {
+.form-add label {
   width: 100%;
   color: var(--color-secondary);
   display: block;
@@ -42,7 +42,7 @@ label {
   color: var(--color-primary);
 }
 
-.btn {
+.form-add .btn {
   background-color: rgba(34, 65, 81, 1);
   color: var(--color-secondary);
   padding: 12px 20px;
@@ -61,7 +61,7 @@ label {
   padding: 15px;
 }
 
-h1 {
+.form-add h1 {
   margin-top: 10px;
 }
 
