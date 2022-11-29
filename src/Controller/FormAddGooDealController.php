@@ -9,6 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use DateTime;
 
 #[Route('/form', name: 'form_goodeal')]
 class FormAddGooDealController extends AbstractController
@@ -17,13 +18,13 @@ class FormAddGooDealController extends AbstractController
     public function new(Request $request, AnnouncementRepository $annRepository): Response
     {
         $announcement = new Announcement();
+        $announcement->setDate(new DateTime());
         $formGD = $this->createForm(FormGooDealType::class, $announcement);
         $formGD->handleRequest($request);
-
         if ($formGD->isSubmitted() && $formGD->isValid()) {
             $annRepository->save($announcement, true);
 
-            return $this->redirectToRoute('goodeals', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('announcements_region', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('form/formGoodeal.html.twig', [
