@@ -15,7 +15,7 @@ class RegionFixtures extends Fixture
         ],
         [
             'region' => 'Nouvelle-Aquitaine',
-            'slug' => 'new-aquitaine',
+            'slug' => 'nouvelle-aquitaine',
         ],
         [
             'region' => 'Auvergne-Rhône-Alpes',
@@ -23,7 +23,7 @@ class RegionFixtures extends Fixture
         ],
         [
             'region' => 'Bourgogne-Franche-Comté',
-            'slug' => 'bougogne-franche-comte',
+            'slug' => 'bourgogne-franche-comte',
         ],
         [
             'region' => 'Bretagne',
