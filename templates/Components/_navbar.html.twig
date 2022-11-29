@@ -1,5 +1,5 @@
 <nav>
 	{% for event in events %}
-		<a href="/announcements/region/{{region.id}}/{% if selected %}region_id={{selected}}{% endif %}{% if event!='tous' %}{{event}}{% endif %}" {% if active==event %} class="active" {% endif %}>{{event}}</a>
+		<a href="/announcements/region/{{region.id}}">{{event}}</a>
 	{% endfor %}
 </nav>

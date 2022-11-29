@@ -4,7 +4,6 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\AnnouncementRepository;
 use App\Repository\RegionRepository;
@@ -21,49 +20,12 @@ class AnnouncementController extends AbstractController
         3 => 'hebergements'
     ];
 
-    private int $perPage = 3;
-
     #[Route('/region/{region}', methods: ['GET'], requirements: ['region' => '\d+'], name: 'region')]
     public function showAnnouncementsByRegion(Region $region, RegionRepository $regionRepo): Response
     {
-        $where = [];
-        $selected = '';
-        $page = 1;
-        $error = '';
-        $active = 'tous';
 
         $announcements = $region->getAnnouncements();
         $regions = $regionRepo->findAll();
-
-        if (isset($_GET['search'])) {
-            $where['search'] = htmlentities($_GET['search']);
-        } else {
-            if (isset($_GET['region_id'])) {
-                $where['region_id'] = (int) $_GET['region_id'];
-                $selected = $where['region_id'];
-            }
-            if (isset($_GET['category'])) {
-                if (in_array($_GET['category'], self::EVENTS)) {
-                    $where['category'] = $_GET['category'];
-                    $active = $where['category'];
-                } else {
-                    $error .= 'Categorie n\'existe pas'; //throw new \Exception('Categorie n\'existe pas');
-                    $where = [];
-                }
-            }
-        }
-
-        $numrows = count($announcements);
-        $numpages = ceil($numrows / $this->perPage);
-
-        if ($numpages > 1) {
-            $page = (!isset($_GET['page']) || $_GET['page'] == 0 || $_GET['page'] > $numpages) ? 1 : $_GET['page'];
-            $begin = ($page - 1) * $this->perPage;
-            $end = $this->perPage;
-            $where['limitQuery'] = ' LIMIT ' . $begin . ',' . $end;
-            // $where['pageURL'] = '&page=' . $where['page'];
-            unset($where['limitQuery']);
-        }
 
         $events = self::EVENTS;
         return $this->render(
@@ -73,12 +35,6 @@ class AnnouncementController extends AbstractController
                 'regions' => $regions,
                 'announcements' => $announcements,
                 'events' => $events,
-                'active' => $active,
-                'selected' => $selected,
-                'numpages' => $numpages,
-                'where' => $where,
-                'page' => $page,
-                'error' => $error
             ]
         );
     }
