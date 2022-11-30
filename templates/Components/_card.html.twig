@@ -1,0 +1,45 @@
+<li class="card-container">
+	<a class="card-single icon edit" href="/addGoodeal/edit?id={{announcement.id}}">
+		<span class="icon edit"><img class="edit" src="{{ asset('build/images/icons/edit.svg') }}" alt="Modifier"/></span>
+	</a>
+	<a class="card-single icon remove" href="/announcements/delete/{{announcement.id}}" onclick="return confirm('Vous êtes sûr ? Ce sera irréversible');">
+		<span class="icon remove"><img src="{{ asset('build/images/icons/remove.png') }}" alt="Supprimer"></span>
+	</a>
+	<a href="/announcements/card/{{announcement.id}}" class="card-single">
+		<article class="card-single">
+			<div class="card-header">
+				<h2>{{announcement.title}}</h2>
+			</div>
+			<div class="card-date-city">
+				<span class="card-date">
+					<span class="">
+						{% if announcement.dateStart %}Du
+							{{announcement.dateStart|date('d M')}}
+						{% endif %}
+						-
+						{% if announcement.dateEnd %}
+							{{announcement.dateEnd|date('d M Y')}}
+						{% endif %}
+					</span>
+					<span>Lieu :
+						{{announcement.city}}</span>
+				</span>
+			</div>
+			<div class="card-info">
+				<div class="card-image">
+					<img src="{{ asset('build/images/cards/'~announcement.image~'') }}" alt="{{announcement.title}}"/>
+				</div>
+				<div class="card-text">
+					{{announcement.message}}
+				</div>
+				<div class="card-see-more">En savoir plus</div>
+				<div class="card-author">
+					<div class="author-line">De
+						{# <span>{{announcement.user.firstname}}
+													{{announcement.user.lastname}}</span> #}
+					</div>
+				</div>
+			</div>
+		</article>
+	</a>
+</li>
