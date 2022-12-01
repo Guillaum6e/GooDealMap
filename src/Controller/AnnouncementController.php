@@ -45,7 +45,9 @@ class AnnouncementController extends AbstractController
             $category = $request->query->get("announcement");
             $categoryObject = $catRepository->findOneBy(["name" => $category]);
             if ($id > 0) {
-                $announcements = $annRepository->findBy(['region' => $region->getId(), "category" => $categoryObject->getId()]);
+                $announcements = $annRepository->findBy(
+                    ['region' => $region->getId(), "category" => $categoryObject->getId()]
+                );
             } else {
                 $announcements = $annRepository->findBy(["category" => $categoryObject->getId()]);
             }
@@ -116,8 +118,9 @@ class AnnouncementController extends AbstractController
     #[Route('/delete/{id}', requirements: ['id' => '\d+'], name: 'delete')]
     public function delete(Announcement $announcement, AnnouncementRepository $announcementRepo): Response
     {
-
         $announcementRepo->remove($announcement, true);
-        return $this->redirectToRoute('app_home', [], Response::HTTP_SEE_OTHER);
+        $region = $announcement->getRegion();
+        $id = $region->getId();
+        return $this->redirectToRoute('announcements_region', ['id' => $id], Response::HTTP_SEE_OTHER);
     }
 }
