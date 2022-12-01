@@ -13,7 +13,7 @@ class AnnouncementFixtures extends Fixture implements DependentFixtureInterface
     private const ANNOUNCEMENTS = [
         [
             'slugCategory' => 'category_evenements',
-            'slugRegion' => 'region_grand-est',
+            'slugRegion' => 'region_hdf',
             'slugUser' => '',
             'title' => 'Poésie Festival',
             'message' => 'Lille Poésie Festival innove en mettant à l’honneur durant trois
@@ -28,7 +28,7 @@ class AnnouncementFixtures extends Fixture implements DependentFixtureInterface
         ],
         [
             'slugCategory' => 'category_evenements',
-            'slugRegion' => 'region_nouvelle-aquitaine',
+            'slugRegion' => 'region_hdf',
             'slugUser' => '',
             'title' => 'Chasse au Trésor Mortelle',
             'message' => 'Challenge, découverte,
@@ -43,7 +43,7 @@ class AnnouncementFixtures extends Fixture implements DependentFixtureInterface
         ],
         [
             'slugCategory' => 'category_restaurations',
-            'slugRegion' => 'region_auvergne-rhone-alpes',
+            'slugRegion' => 'region_ile-de-france',
             'slugUser' => '',
             'title' => 'Restaurant hawaïen',
             'message' => 'Le POKAWA, un restaurant hawaïen dans le 2ème arrondissement de Paris,
@@ -70,7 +70,7 @@ class AnnouncementFixtures extends Fixture implements DependentFixtureInterface
         ],
         [
             'slugCategory' => 'category_restaurations',
-            'slugRegion' => 'region_bourgogne-franche-comte',
+            'slugRegion' => 'region_bretagne',
             'slugUser' => '',
             'title' => 'Restaurant Le Kerland',
             'message' => 'Une cuisine généreuse et riche en saveurs à déguster en tête-à-tête',
@@ -84,7 +84,7 @@ class AnnouncementFixtures extends Fixture implements DependentFixtureInterface
         ],
         [
             'slugCategory' => 'category_hebergements',
-            'slugRegion' => 'region_bretagne',
+            'slugRegion' => 'region_paca',
             'slugUser' => '',
             'title' => 'Les chambres de toucas',
             'message' => 'Bienvenue aux chambres de Toucas\n\nNous vous accueillons
@@ -115,7 +115,7 @@ class AnnouncementFixtures extends Fixture implements DependentFixtureInterface
         ],
         [
             'slugCategory' => 'category_hebergements',
-            'slugRegion' => 'region_hdf',
+            'slugRegion' => 'region_paca',
             'slugUser' => '',
             'title' => 'Hôtel Roi Théodore & SPA',
             'message' => 'Vous trouverez assurément à l\'Hôtel Le Roi Theodore & SPA

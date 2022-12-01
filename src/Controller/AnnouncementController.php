@@ -20,8 +20,8 @@ class AnnouncementController extends AbstractController
         3 => 'hebergements'
     ];
 
-    #[Route('/region/{region}', methods: ['GET'], requirements: ['region' => '\d+'], name: 'region')]
-    public function showAnnouncementsByRegion(Region $region, RegionRepository $regionRepo): Response
+    #[Route('/region/{id}', methods: ['GET'], requirements: ['region' => '\d+'], name: 'region')]
+    public function showAnnouncementsByRegion(Region $region, RegionRepository $regionRepo, int $id): Response
     {
 
         $announcements = $region->getAnnouncements();
@@ -35,25 +35,31 @@ class AnnouncementController extends AbstractController
                 'regions' => $regions,
                 'announcements' => $announcements,
                 'events' => $events,
+                'selectedRegion' => $id
             ]
         );
     }
 
-    #[Route('/region/{region}/event/{event}', name: 'region/event')]
-    public function showAnnouncementsByEvents(Region $region, RegionRepository $regionRepo): Response
-    {
-        $announcements = $region->getAnnouncements();
-        $regions = $regionRepo->findAll();
-
-        return $this->render(
-            'announcement/index.html.twig',
-            [
-                'region' => $region,
-                'regions' => $regions,
-                'announcements' => $announcements,
-            ]
-        );
-    }
+    // #[Route(
+    //     '/region/{id}/event/{event}',
+    //     methods: ['GET'],
+    //     name: 'region/event',
+    //     requirements: ['region' => '\d+', 'event' => '\w']
+    // )]
+    // public function showAnnouncementsByEvents(Region $region, RegionRepository $regionRepo, int $id): Response
+    // {
+    //     $regions = $regionRepo->findbyId();
+    //     $announcements = $regions->getAnnouncements();
+    //     return $this->render(
+    //         'announcement/index.html.twig',
+    //         [
+    //             'region' => $region,
+    //             'regions' => $regions,
+    //             'announcements' => $announcements,
+    //             'selectedRegion' => $id,
+    //         ]
+    //     );
+    // }
 
     /**
      * Show one specific announcement

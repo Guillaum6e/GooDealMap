@@ -24,7 +24,7 @@ class FormAddGooDealController extends AbstractController
         if ($formGD->isSubmitted() && $formGD->isValid()) {
             $annRepository->save($announcement, true);
 
-            return $this->redirectToRoute('announcements_region', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('announcement/regions/id', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('form/formGoodeal.html.twig', [
