@@ -230,9 +230,12 @@ div.card-see-more {
 
 }
 
+
+
 .announcement nav {
     width: var(--nav-width);
     display: flex;
+    justify-content: center;
     flex-direction: row;
     height: var(--card-header-height);
     margin: 0 auto var(--padding-card);
@@ -367,7 +370,7 @@ div.pages a {
     .announcement nav a,
     .announcement nav a:visited {
         border: 0.5px solid var(--color-primary);
-        width: 50%;
+        width: 49%;
         font-size: var(--font-size-card-date);
     }
 
