@@ -72,29 +72,6 @@ class AnnouncementController extends AbstractController
         );
     }
 
-    // #[Route(
-    //     '/region/{id}/event/{event}',
-    //     methods: ['GET'],
-    //     name: 'region/event',
-    // )]
-    // public function showAnnouncementsByEvents(Region $region, RegionRepository $regionRepo, int $id): Response
-    // {
-
-    //     $regionById = $regionRepo->findById($id);
-    //     $announcements = $regionById->getAnnouncements();
-    //     $events = self::EVENTS;
-    //     return $this->render(
-    //         'announcement/index.html.twig',
-    //         [
-    //             'region' => $region,
-    //             'regions' => $regionById,
-    //             'announcements' => $announcements,
-    //             'selectedRegion' => $id,
-    //             'events' => $events,
-    //         ]
-    //     );
-    // }
-
     /**
      * Show one specific announcement
      */
