@@ -1,5 +1,5 @@
 <nav>
 	{% for event in events %}
-		<a {% if event == 'tous' %} class="active" {% endif %}  href="/announcements/region/{{region.id}}?announcement={{event}}">{{event}}</a>
+		<a {% if event == category %} class="active" {% endif %} href="/announcements/region/{{ selectedRegion }}?announcement={{ event }}">{{event}}</a>
 	{% endfor %}
 </nav>
