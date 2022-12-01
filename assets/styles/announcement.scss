@@ -37,6 +37,7 @@ ul.container p {
 li.wide {
     width: 100%;
     margin-top: calc(2*var(--padding-card));
+    list-style: none;
 }
 
 article.card-single {
