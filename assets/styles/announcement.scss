@@ -189,6 +189,7 @@ div.card-text {
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
     padding-top: calc(var(--padding-card-icon)/2);
+    height: 96px;
 }
 
 article.card-single div.card-info {
