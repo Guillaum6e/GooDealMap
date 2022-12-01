@@ -11,6 +11,7 @@
 {% endblock %}
 
 {% block body %}
+  {% include 'Components/_button.html.twig' %} 
 
 	<main class="home" id="home">
 		<section class="map-img">
@@ -34,7 +35,6 @@
               </a>
               
             </section>
-                 {% include 'Components/_button.html.twig' %} 
             <section id="card-mobile">
            
               <div class="last-news">
@@ -49,9 +49,7 @@
                       <i>{{announcement.city}}</i>
                     </div>
                     <div class="body-card">
-                      <img src='{{
-                        asset("build/images/cards/" ~ announcement.image)
-                      }}'>
+                      <img src="{{ asset('images/cards/' ~announcement.image) }}" alt="{{announcement.title}}"/>
                     </div> 
                     </a>
                   </li> 

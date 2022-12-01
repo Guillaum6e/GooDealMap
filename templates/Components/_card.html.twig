@@ -27,18 +27,18 @@
 			</div>
 			<div class="card-info">
 				<div class="card-image">
-					<img src="{{ asset('build/images/cards/'~announcement.image~'') }}" alt="{{announcement.title}}"/>
+					<img src="{{ asset('images/cards/' ~announcement.image) }}" alt="{{announcement.title}}"/>
 				</div>
 				<div class="card-text">
 					{{announcement.message}}
 				</div>
 				<div class="card-see-more">En savoir plus</div>
-				<div class="card-author">
+				{# <div class="card-author">
 					<div class="author-line">De
 						{# <span>{{announcement.user.firstname}}
-													{{announcement.user.lastname}}</span> #}
+													{{announcement.user.lastname}}</span>
 					</div>
-				</div>
+				</div> #}
 			</div>
 		</article>
 	</a>

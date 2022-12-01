@@ -13,7 +13,7 @@
 				{% if app.user %}
 				</li>
 				<li>
-						<a href="{{ path("app_logout") }}" class="a-header undisplay-responsive">Me deconnecter</a>
+						<a href="{{ path("app_logout") }}" class="a-header undisplay-responsive">Me déconnecter</a>
 					</li>
 				<li>
 						<a href="" class="a-header undisplay-responsive">Vous êtes connecté(e) en tant que {{ app.user.userIdentifier }} </a>
@@ -38,7 +38,7 @@
 	</div>
 	<a href="{{ path("about_index") }}" class="a-header undisplay-responsive">Notre concept</a>
 	{% if app.user %}
-		<a href="{{ path("app_logout") }}" class="a-header undisplay-responsive">Me deconnecter</a>
+		<a href="{{ path("app_logout") }}" class="a-header undisplay-responsive">Me déconnecter</a>
 		<a href="" class="a-header undisplay-responsive">Vous êtes connecté(e) en tant que {{ app.user.userIdentifier }} </a>
 	{% else %}
 		<a href="{{ path("app_login") }}" class="a-header undisplay-responsive">Me connecter</a>
