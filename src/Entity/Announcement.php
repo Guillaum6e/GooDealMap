@@ -63,7 +63,6 @@ class Announcement
     #[ORM\Column(type: 'datetime')]
     private ?\DateTimeInterface $updatedAt;
 
-    
     public function getId(): ?int
     {
         return $this->id;
@@ -169,12 +168,12 @@ class Announcement
     {
         return $this->imageFile;
     }
-    public function setImageFile(?File $image = null)
+    public function setImageFile(?File $image = null): void
     {
         $this->imageFile = $image;
         if ($image) {
             $this->updatedAt = new DateTime('now');
-          }
+        }
     }
 
     public function getCity(): ?string
@@ -223,7 +222,7 @@ class Announcement
 
         return $this;
     }
-    
+
     public function getUpdatedAt(): ?\DateTimeInterface
     {
         return $this->updatedAt;
