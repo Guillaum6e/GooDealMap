@@ -13,7 +13,7 @@ class AnnouncementFixtures extends Fixture implements DependentFixtureInterface
     private const ANNOUNCEMENTS = [
         [
             'slugCategory' => 'category_evenements',
-            'slugRegion' => 'region_grand-est',
+            'slugRegion' => 'region_hdf',
             'slugUser' => '',
             'title' => 'Poésie Festival',
             'message' => 'Lille Poésie Festival innove en mettant à l’honneur durant trois
@@ -28,7 +28,7 @@ class AnnouncementFixtures extends Fixture implements DependentFixtureInterface
         ],
         [
             'slugCategory' => 'category_evenements',
-            'slugRegion' => 'region_nouvelle-aquitaine',
+            'slugRegion' => 'region_hdf',
             'slugUser' => '',
             'title' => 'Chasse au Trésor Mortelle',
             'message' => 'Challenge, découverte,
@@ -115,7 +115,7 @@ class AnnouncementFixtures extends Fixture implements DependentFixtureInterface
         ],
         [
             'slugCategory' => 'category_hebergements',
-            'slugRegion' => 'region_hdf',
+            'slugRegion' => 'region_corse',
             'slugUser' => '',
             'title' => 'Hôtel Roi Théodore & SPA',
             'message' => 'Vous trouverez assurément à l\'Hôtel Le Roi Theodore & SPA
