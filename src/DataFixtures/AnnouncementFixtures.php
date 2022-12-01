@@ -22,6 +22,7 @@ class AnnouncementFixtures extends Fixture implements DependentFixtureInterface
             'date' => '2022-11-24',
             'date_start' => '2022-11-24',
             'date_end' => '2022-11-26',
+            'updated_at' => '2021-11-24',
             'image' => 'poesie.jpg',
             'city' => 'Lille',
             'zipcode' => 59000,
@@ -37,6 +38,7 @@ class AnnouncementFixtures extends Fixture implements DependentFixtureInterface
             'date' => '2022-11-24',
             'date_start' => '2022-11-20',
             'date_end' => '2022-11-30',
+            'updated_at' => '2021-11-24',
             'image' => 'jeudepiste.jpg',
             'city' => 'Lille',
             'zipcode' => 59000,
@@ -64,6 +66,7 @@ class AnnouncementFixtures extends Fixture implements DependentFixtureInterface
             'date' => '2022-11-24',
             'date_start' => '2023-01-10',
             'date_end' => '2023-01-12',
+            'updated_at' => '2021-11-24',
             'image' => 'parisRestaurant.jpg',
             'city' => 'Paris',
             'zipcode' => 75002,
@@ -78,6 +81,7 @@ class AnnouncementFixtures extends Fixture implements DependentFixtureInterface
             'date' => '2022-11-24',
             'date_start' => '2022-12-31',
             'date_end' => '2022-12-31',
+            'updated_at' => '2021-11-24',
             'image' => 'bretagneRestaurant.jpg',
             'city' => 'Riec-sur-Bélon',
             'zipcode' => 29340,
@@ -109,6 +113,7 @@ class AnnouncementFixtures extends Fixture implements DependentFixtureInterface
             'date' => '2022-11-24',
             'date_start' => '2022-12-24',
             'date_end' => '2022-12-26',
+            'updated_at' => '2021-11-24',
             'image' => 'hotelToucas.jpg',
             'city' => 'Solliès-Toucas',
             'zipcode' => 83210,
@@ -124,6 +129,7 @@ class AnnouncementFixtures extends Fixture implements DependentFixtureInterface
             'date' => '2022-11-24',
             'date_start' => '2022-12-30',
             'date_end' => '2023-01-02',
+            'updated_at' => '2021-11-24',
             'image' => 'hotelRoi.jpg',
             'city' => 'Porto-Vecchio',
             'zipcode' => 20137,
@@ -140,6 +146,7 @@ class AnnouncementFixtures extends Fixture implements DependentFixtureInterface
             $announcement->setDate(new DateTime($goodeal['date']));
             $announcement->setDateStart(new DateTime($goodeal['date_start']));
             $announcement->setDateEnd(new DateTime($goodeal['date_end']));
+            $announcement->setUpdatedAt(new DateTime($goodeal['updated_at']));
             $announcement->setImage($goodeal['image']);
             $announcement->setCity($goodeal['city']);
             $announcement->setZipcode($goodeal['zipcode']);

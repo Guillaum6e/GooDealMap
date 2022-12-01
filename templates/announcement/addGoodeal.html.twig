@@ -6,7 +6,7 @@
 	- Ajouter un GooDeal
 {% endblock %}
 
-{% block stylesheet %}
+{% block stylesheets %}
 	<link rel="stylesheet" href="/assets/css/addGoodeal.css">
 {% endblock %}
 
@@ -34,8 +34,9 @@
 				{{ form.inputNoRequiredNoError("end-date", "Date de fin", "date", "end-date", "end-date", "ex: 25/12/2022") }}
 				{{ form.input("email", "Ton adresse mail*", "email", "email", "email", errors.email, "ex: florent.dupond@gmail.com", data.email) }}
 				{{ form.input("imageupload", "La photo de ton deal", "file", "imageupload", "imageupload", errors.image) }}
+				{# <input type="file" id="announcements_imageeFile_file" name="announcements[imageFile][file]"> #}
 				{{ form.textarea("description", "Décris ton deal*", "text", "description", "description", errors.message, "ex: Grand tournoi de pétanque avec plus de 300 paritcipants...", data.description) }}
-				<button class="btn type=" submit">Ajoute ton deal</button>
+				<button class="btn" type="submit">Ajoute ton deal</button>
 			</form>
 		</div>
 	</div>

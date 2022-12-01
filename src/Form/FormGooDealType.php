@@ -9,11 +9,10 @@ use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Vich\UploaderBundle\Form\Type\VichFileType;
 use App\Entity\Category;
 use App\Entity\Region;
 
@@ -65,7 +64,10 @@ class FormGooDealType extends AbstractType
                 'label' => 'Date de début',
                 'label_attr' => ['class' => 'form-label'],
             ])
-            ->add('image', FileType::class, [
+            ->add('imageFile', VichFileType::class, [
+                'required' => false,
+                'allow_delete' => true,
+                'download_uri' => true,
                 'constraints' => [
                     new File([
                         'maxSize' => '2000000',
