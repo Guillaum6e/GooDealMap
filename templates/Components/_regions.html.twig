@@ -4,7 +4,7 @@
 		{% endif %}
 	</option>
 	{% for region in regions %}
-		<option value="{{region.id}}">
+		<option {{ region.id is same as(selectedRegion) ? "selected" : ""}} value="{{region.id}}">
 			{{region.regionName}}
 		</option>
 	{% endfor %}

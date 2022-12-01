@@ -70,9 +70,9 @@ class FormGooDealType extends AbstractType
                     new File([
                         'maxSize' => '2000000',
                         'mimeTypes' => [
-                            'application/jpg',
-                            'application/jpeg',
-                            'application/png',
+                            'image/jpg',
+                            'image/jpeg',
+                            'image/png',
                         ],
                         'mimeTypesMessage' => 'Please upload a valid image',
                     ])

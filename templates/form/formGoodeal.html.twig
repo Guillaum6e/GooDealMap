@@ -8,6 +8,6 @@
 {% block body %}
     {{ form_start(formGD) }}
         {{ form_widget(formGD) }}
-        <button class="btn">{{ button_label|default('Save') }}</button>
+        <button type="submit" class="btn">{{ button_label|default('Save') }}</button>
     {{ form_end(formGD) }}
 {% endblock %}
