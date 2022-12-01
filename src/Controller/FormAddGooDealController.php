@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Form\FormGooDealType;
 use App\Entity\Announcement;
 use App\Repository\AnnouncementRepository;
+use App\Repository\RegionRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,7 +16,7 @@ use DateTime;
 class FormAddGooDealController extends AbstractController
 {
     #[Route('/new', name: '_new')]
-    public function new(Request $request, AnnouncementRepository $annRepository): Response
+    public function new(Request $request, AnnouncementRepository $annRepository, RegionRepository $region): Response
     {
         $announcement = new Announcement();
         $announcement->setDate(new DateTime());
@@ -23,8 +24,10 @@ class FormAddGooDealController extends AbstractController
         $formGD->handleRequest($request);
         if ($formGD->isSubmitted() && $formGD->isValid()) {
             $annRepository->save($announcement, true);
+            $region = $announcement->getRegion();
+            $id = $region->getId();
 
-            return $this->redirectToRoute('announcement/regions/id', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('announcements_region', ['id' => $id], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('form/formGoodeal.html.twig', [

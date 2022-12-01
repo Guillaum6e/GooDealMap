@@ -37,6 +37,7 @@ ul.container p {
 li.wide {
     width: 100%;
     margin-top: calc(2*var(--padding-card));
+    list-style: none;
 }
 
 article.card-single {
@@ -189,6 +190,7 @@ div.card-text {
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
     padding-top: calc(var(--padding-card-icon)/2);
+    height: 96px;
 }
 
 article.card-single div.card-info {

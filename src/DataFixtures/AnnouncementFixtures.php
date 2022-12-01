@@ -29,7 +29,7 @@ class AnnouncementFixtures extends Fixture implements DependentFixtureInterface
         ],
         [
             'slugCategory' => 'category_evenements',
-            'slugRegion' => 'region_hdf',
+            'slugRegion' => 'region_nouvelle-aquitaine',
             'slugUser' => '',
             'title' => 'Chasse au Trésor Mortelle',
             'message' => 'Challenge, découverte,

@@ -9,6 +9,8 @@ use App\Repository\AnnouncementRepository;
 use App\Repository\RegionRepository;
 use App\Entity\Announcement;
 use App\Entity\Region;
+use App\Repository\CategoryRepository;
+use Symfony\Component\HttpFoundation\Request;
 
 #[Route('/announcements', name: 'announcements_')]
 class AnnouncementController extends AbstractController
@@ -21,12 +23,41 @@ class AnnouncementController extends AbstractController
     ];
 
     #[Route('/region/{id}', methods: ['GET'], requirements: ['region' => '\d+'], name: 'region')]
-    public function showAnnouncementsByRegion(Region $region, RegionRepository $regionRepo, int $id): Response
-    {
-
-        $announcements = $region->getAnnouncements();
+    public function showAnnouncementsByRegion(
+        Request $request,
+        //Remove param converter for region
+        // Region $region,
+        RegionRepository $regionRepo,
+        int $id,
+        AnnouncementRepository $annRepository,
+        CategoryRepository $catRepository,
+    ): Response {
+        $region = null;
+        if ($id > 0) {
+            $region = $regionRepo->findOneById($id);
+            $announcements = $annRepository->findBy(["region" => $region->getId()]);
+        } else {
+            $announcements = $annRepository->findAll();
+        }
+        $category = "tous";
         $regions = $regionRepo->findAll();
+        if ($request->query->get("announcement") && $request->query->get("announcement") !== "tous") {
+            $category = $request->query->get("announcement");
+            $categoryObject = $catRepository->findOneBy(["name" => $category]);
+            if ($id > 0) {
+                $announcements = $annRepository->findBy(
+                    ['region' => $region->getId(), "category" => $categoryObject->getId()]
+                );
+            } else {
+                $announcements = $annRepository->findBy(["category" => $categoryObject->getId()]);
+            }
+        } else {
+            if ($id > 0) {
+                $announcements = $annRepository->findBy(['region' => $region->getId()]);
+            }
+        }
 
+        //dd($announcements);
         $events = self::EVENTS;
         return $this->render(
             'announcement/index.html.twig',
@@ -35,31 +66,11 @@ class AnnouncementController extends AbstractController
                 'regions' => $regions,
                 'announcements' => $announcements,
                 'events' => $events,
-                'selectedRegion' => $id
+                'selectedRegion' => $id,
+                'category' => $category
             ]
         );
     }
-
-    // #[Route(
-    //     '/region/{id}/event/{event}',
-    //     methods: ['GET'],
-    //     name: 'region/event',
-    //     requirements: ['region' => '\d+', 'event' => '\w']
-    // )]
-    // public function showAnnouncementsByEvents(Region $region, RegionRepository $regionRepo, int $id): Response
-    // {
-    //     $regions = $regionRepo->findbyId();
-    //     $announcements = $regions->getAnnouncements();
-    //     return $this->render(
-    //         'announcement/index.html.twig',
-    //         [
-    //             'region' => $region,
-    //             'regions' => $regions,
-    //             'announcements' => $announcements,
-    //             'selectedRegion' => $id,
-    //         ]
-    //     );
-    // }
 
     /**
      * Show one specific announcement
@@ -84,8 +95,9 @@ class AnnouncementController extends AbstractController
     #[Route('/delete/{id}', requirements: ['id' => '\d+'], name: 'delete')]
     public function delete(Announcement $announcement, AnnouncementRepository $announcementRepo): Response
     {
-
         $announcementRepo->remove($announcement, true);
-        return $this->redirectToRoute('app_home', [], Response::HTTP_SEE_OTHER);
+        $region = $announcement->getRegion();
+        $id = $region->getId();
+        return $this->redirectToRoute('announcements_region', ['id' => $id], Response::HTTP_SEE_OTHER);
     }
 }
