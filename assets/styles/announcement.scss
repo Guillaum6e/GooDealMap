@@ -232,9 +232,12 @@ div.card-see-more {
     width: 200px;
 }
 
+
+
 .announcement nav {
     width: var(--nav-width);
     display: flex;
+    justify-content: center;
     flex-direction: row;
     height: var(--card-header-height);
     margin: 0 auto var(--padding-card);
