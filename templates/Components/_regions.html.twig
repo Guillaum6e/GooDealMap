@@ -1,0 +1,11 @@
+<select class="region" name="region" id="region" autocomplete="off" onclick="this.classList.toggle('opened');" onblur="this.classList.remove('opened');" onchange="javascript:location.href = this.value;">
+	<option class="not-selected" value="0">
+		{% if events %}Toutes les régions{% else %}Choisis ta region
+		{% endif %}
+	</option>
+	{% for region in regions %}
+		<option {{ region.id is same as(selectedRegion) ? "selected" : ""}} value="{{region.id}}">
+			{{region.regionName}}
+		</option>
+	{% endfor %}
+</select>

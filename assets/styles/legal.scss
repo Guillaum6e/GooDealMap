@@ -1,0 +1,41 @@
+.overlay-mention {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 80%;
+    background-color: var(--overlay-color);
+    z-index: 1;
+    border-radius: 16px;
+    height: 83vh;
+    overflow: auto;
+
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.p-legal {
+    color: var(--color-secondary);
+    text-indent: 10px;
+    letter-spacing: 2px;
+    line-height: 1.2;
+}
+
+.a-legal {
+    text-decoration: none;
+    color: var(--color-secondary)
+}
+
+.title-legal {
+    letter-spacing: 5px;
+    line-height: 1.9;
+    color: var(--color-secondary);
+    text-transform: uppercase;
+    text-shadow: 1px 1px;
+}
+
+.list-legal {
+    color: var(--color-secondary);
+}

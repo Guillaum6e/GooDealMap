@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+	{{parent()}}
+	- Annonces
+{% endblock %}
+
+{% block stylesheets %}
+	{{ encore_entry_link_tags('announcement') }}
+	{{ encore_entry_link_tags('blurCss') }}
+{% endblock %}
+
+{% block body %}
+	<main class="announcement">
+		{% include 'Components/_button.html.twig' %}
+		{% include 'Components/_navbar.html.twig' %}
+		{% include 'Components/_regions.html.twig' %}
+		<ul class="container">
+			{% if announcements %}
+				{% for announcement in announcements %}
+					{% include 'Components/_card.html.twig' %}
+				{% endfor %}
+			{% else %}
+				<li class="wide">
+					<p>Il n'y a encore aucun Goodeal correspondant à ta recherche.</p>
+				</li>
+			{% endif %}
+		</ul>
+	</main>
+{% endblock %}
+{% block javascript %}
+	<script src="/assets/javascript/region.js"></script>
+{% endblock %}

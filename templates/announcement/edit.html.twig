@@ -1,0 +1,49 @@
+{% extends 'layout.html.twig' %}
+{% import "Announcement/form.html.twig" as form %}
+
+{% block title %}
+	{{ parent() }}
+	- Edit
+	{{ GooDealData.title }}
+{% endblock %}
+
+{% block stylesheet %}
+	<link rel="stylesheet" href="/assets/css/addGoodeal.css">
+{% endblock %}
+
+
+{% block content %}
+
+<main>
+	<div class="form-add">
+		<div class="overlay">
+			<h1 class="txt-form">Edite ton GooDeal
+				{{ GooDealData.title }}
+			</h1>
+
+			<form method="post" enctype="multipart/form-data" class="form-add">
+				<input type="hidden" name="id" value="{{ GooDealData.id }}"/>
+				{{ form.input("deal-name","Nom de ton deal*", "text", "deal-name", "deal-name", errors.title, "nom du deal", GooDealData.title) }}
+				{{ form.input("lastname","Ton nom*", "text", "lastname", "lastname", errors.lastname, "ex: juste", GooDealData.lastname) }}
+				{{ form.input("firstname", "Ton prénom*", "text", "firstname", "firstname", errors.firstname, "ex: axel", GooDealData.firstname) }}
+				{{ form.selectCategory("category","Choisis ta catégorie*", "category", "category", GooDealData.category) }}
+				{{ form.input("address","Nom et Numéro de rue du goodeal*", "text", "address", "address", errors.address, "ex: 14 bis Route Nationale", GooDealData.address) }}
+				<label for="region">Région du goodeal*</label>
+				{% include 'Components/_regions.html.twig' %}
+				{% if errors.region %}
+					<p class="error">{{ errors.region }}</p>
+				{% endif %}
+				{# form.selectregion("region","région du goodeal*", "region", "region", GooDealData.region) #}
+				{{ form.input("city","Ville du goodeal*", "text", "city", "city", errors.city, "ex: Wargnies", GooDealData.city) }}
+				{{ form.input("zipcode", "Code postal du goodeal*", "text", "zipcode", "zipcode", errors.zipcode, "ex: 59144", GooDealData.zipcode) }}
+				{{ form.inputNoRequiredNoError("start-date", "Date de début", "date", "start-date", "start-date", "ex: 20/12/2022", GooDealData.date_start) }}
+				{{ form.inputNoRequiredNoError("end-date", "Date de fin", "date", "end-date", "end-date", "ex: 25/12/2022", GooDealData.date_end) }}
+				{{ form.input("email", "ton adresse mail*", "Email", "email", "email", errors.email, "ex: florent.dupond@gmail.com", GooDealData.email) }}
+				{{ form.inputImage("imageupload", "La photo de ton deal", "file", "imageupload", "imageupload", errors.image, GooDealData.image) }}
+				{{ form.textarea("description", "Décris ton deal*", "text", "description", "description", errors.message, "ex: grand tournoi de pétanque avec plus de 300 paritcipants...", GooDealData.message) }}
+				<button class="btn" type="submit">Mise à jour du GooDeal</button>
+			</form>
+		</div>
+	</div>
+</main>
+{% endblock %}

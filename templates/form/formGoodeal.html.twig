@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouveau GooDeal{% endblock %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('addGoodealCss') }}
+    {{ encore_entry_link_tags('blurCss') }}
+{% endblock %}
+
+{% block body %}
+
+    <div class="bg-overf">
+        <main class="container">
+            {{ form_start(formGD,{'attr': {'class': 'bg-form'}}) }}
+                {{ form_widget(formGD) }}
+                <button class="submit">{{ button_label|default('Enregistrer') }}</button>
+            {{ form_end(formGD) }}
+        </main>
+    </div>
+{% endblock %}

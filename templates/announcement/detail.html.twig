@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+	{{ parent() }}
+	-
+	{{announcement.title}}
+{% endblock %}
+{% block stylesheets %}
+	{{ encore_entry_link_tags('announcement') }}
+	{{ encore_entry_link_tags('card') }}
+	{{ encore_entry_link_tags('blurCss') }}
+{% endblock %}
+{% block body %}
+	<main class="card-container">
+		<div class="container-single">
+			<div
+				class="single-card-header">
+				{% include 'Components/_button.html.twig' %}
+			</div>
+			<article class="card">
+				<div class="card-header">
+					<h2>{{announcement.title}}</h2>
+				</div>
+				<div class="card-date-city">
+					<span class="date">
+						{% if announcement.dateStart %}Du
+							{{announcement.dateStart|date('d M')}}
+						{% endif %}
+						-
+						{% if announcement.dateEnd %}
+							{{announcement.dateEnd|date('d M Y')}}
+						{% endif %}
+					</span>
+					<span class="city">{{announcement.city}}</span>
+				</div>
+				<div class="card-info">
+					<span class="card-image">
+						<img src="{{ asset('images/cards/' ~announcement.image) }}" alt="{{announcement.title}}"/>
+					</span>
+					<span class="card-text">
+						{{announcement.message}}.
+					</span>
+				</div>
+			</article>
+		</div>
+	</main>
+{% endblock %}

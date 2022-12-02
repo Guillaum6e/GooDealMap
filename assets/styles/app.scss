@@ -1,2 +1,183 @@
-//start coding by removing this file and adding yours ;)
-@import "wcs";
+@font-face {
+    font-family: 'IstokWebRegular';
+    src: url('../fonts/IstokWeb-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'IstokWebBold';
+    src: url('../fonts/IstokWeb-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+:root {
+    --height-page: calc(100vh - var(--height-header) - var(--height-footer));
+    --color-primary: #224151;
+    --color-secondary: #F1EFDA;
+    --color-text: #000;
+    --overlay-color: rgba(34, 65, 81, 0.5);
+    --font-primary-regular: IstokWebRegular;
+    --font-primary-bold: IstokWebBold;
+    --font-size-h1-header: 40px;
+    --font-size-h1-body: 36px;
+    --font-size-card-header: 16px;
+    --font-size-card-date: 16px;
+    --font-size-card-footer: 14px;
+    --padding-card: 40px;
+    --margin-card: 65px;
+    --padding-line: 3px;
+    --card-header-height: calc(3*var(--font-size-card-header));
+    --card-width: 382px;
+    --card-height: 636px;
+    --card-icon-width: 25px;
+    --card-header-height: 54px;
+    --card-select-height: 40px;
+    --width-photo-dev: 230px;
+    --margin-photo-dev: 70 px;
+    --width-about-text: 300px;
+    --nav-width: 700px;
+    --height-header: 60px;
+    --height-header-mobile: 125px;
+    --height-footer: 40px;
+    // --padding-footer: 10px;
+
+    --font-size-card-icon: 16px;
+    --padding-card-icon: 40px;
+    --card-header-height-icon: calc(3*var(--font-size-card-icon));
+}
+
+body {
+    color: var(--color-text);
+    font-family: var(--font-primary);
+    background-image: url("../images/background.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    min-height: 100vh;
+    position: relative;
+}
+
+body h1 {
+    font-size: var(--font-size-h1-body);
+    text-align: center;
+    color: var(--color-primary);
+    font-family: var(--font-primary-bold);
+}
+
+main {
+    min-height: calc(100vh - var(--height-header) - var(--height-footer));
+    box-sizing: border-box;
+    /* padding: var(--padding-card) 0 var(--height-footer); */
+}
+
+.mention {
+    padding: 10%
+}
+
+
+input[type=submit] {
+    background-color: rgba(34, 65, 81, 1);
+    color: white;
+    padding: 12px 40px;
+    border: none;
+    cursor: pointer;
+    margin-left: 70%;
+    display: block;
+    border-radius: 28px;
+}
+
+.overlay {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 80%;
+    background-color: var(--overlay-color);
+    z-index: 1;
+    border-radius: 16px;
+}
+
+.btn-goodeals {
+    box-shadow: 0px 10px 14px -7px var(--color-primary);
+    background-color: var(--color-primary);
+    border-radius: 25px;
+    display: inline-block;
+    align-items: center;
+    cursor: pointer;
+    color: var(--color-secondary);
+    font-family: Arial;
+    font-weight: bold;
+    padding: 15px 32px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px var(--color-primary);
+    border: none;
+    border: solid 1px var(--color-primary);
+    position: absolute;
+    right: 35px;
+    /* margin: 0; */
+}
+
+.btn-goodeals:hover {
+    background-color: var(--color-secondary);
+    color: var(--color-primary);
+    border: solid 1px var(--color-primary);
+}
+
+.btn-goodeals.mobile {
+    display: none;
+}
+
+.btn-goodeals.mobile:hover {
+    border: 0.5px solid var(--color-primary);
+}
+
+@media (max-width: 1200px) {
+
+    .responsive-button {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 2rem;
+    }
+
+    .btn-goodeals {
+        display: none;
+        position: initial;
+        right: auto;
+    }
+
+    .btn-goodeals.mobile {
+        position: initial;
+        display: block;
+        /* margin: var(--padding-card) auto 0; */
+        z-index: 11;
+        border: 0.5px solid var(--color-secondary);
+        padding: 0 15px;
+        font-size: 48px;
+        border-radius: 50%;
+        top: calc(var(--height-header) + var(--padding-card));
+    }
+}
+
+ul.container p.error {
+    color: red;
+    padding-bottom: var(--padding-card);
+}
+
+.overlay {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 80%;
+    background-color: rgba(34, 65, 81, 0.5);
+    z-index: 2;
+    border-radius: 16px;
+}
+
+/* end of About us page styles */

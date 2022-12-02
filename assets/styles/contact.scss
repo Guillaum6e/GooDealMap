@@ -1,0 +1,111 @@
+.bg-overf {
+    overflow-x: hidden;
+}
+
+.container {
+  width: 100%;
+  margin-top: 70px;
+}
+
+.bg-form{
+  background-color:rgba(34, 65, 81, 0.515);
+  width: 80%;
+  border-radius: 2%;
+  margin: auto;
+  margin-bottom: 50px;
+  padding:20px; 
+}
+
+#contact{
+  padding: 20px;
+}
+
+.head_form{
+  text-align: center;
+  color: white;
+  font-family: var(--font-primary-regular);
+  padding-top: 20px;
+}
+
+.form-control, .form-control-description {
+width: 90%;
+padding: 12px;
+border: 1px solid #ccc;
+border-radius: 4px;
+margin: 6px auto 0px auto;
+display: flex;
+resize: vertical;
+}
+
+.form-control-description{
+  height: 60px;
+}
+
+.form-label {
+  width: 100%;
+  margin: 6px auto 0px auto;
+  display: flex;
+  resize: vertical;
+  font-size: 1.5rem;
+  color: white;
+  font-size: 1rem;
+  font-family: var(--font-primary-regular);
+}
+
+.submit {
+background-color: rgba(34, 65, 81, 1);
+color: white;
+padding: 12px 40px;
+border: none;
+cursor: pointer;
+margin: auto;
+display: block;
+border-radius: 28px;
+}
+
+.submit:hover {
+  background-color: rgba(34, 65, 81, 0.528);
+}
+
+@media screen and (min-width:768px){
+  .head_form{
+    font-size:20px;
+  }
+
+  .form-control, .form-control-description{
+    width:60%;
+  }
+
+  .form-label{
+    width:65%;
+  }
+}
+
+@media screen and (min-width:1024px){
+  .head_form{
+    font-size:25px;
+  }
+
+  .form-control, .form-control-description{
+    width:50%;
+  }
+
+  .form-label{
+    width:53%
+  }
+}
+
+@media screen and (min-width:1440px){
+  .head_form{
+    font-size:30px;
+  }
+
+  .form-control, .form-control-description{
+    width:40%;
+  }
+
+  .form-label{
+    width:42%;
+  }
+}
+
