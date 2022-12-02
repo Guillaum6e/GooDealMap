@@ -61,7 +61,7 @@ class FormGooDealType extends AbstractType
             ->add('dateEnd', DateTimeType::class, [
                 //'required' => true, // default is true
                 'attr' => ['class' => 'form-control',],
-                'label' => 'Date de début',
+                'label' => 'Date de fin',
                 'label_attr' => ['class' => 'form-label'],
             ])
             ->add('imageFile', VichFileType::class, [
