@@ -22,7 +22,6 @@
 				{% if errors.region %}
 					<p class="error">{{ errors.region }}</p>
 				{% endif %}
-				{# {{ form.selectregion("region","Région du goodeal*", "region", "region") }} #}
 				{{ form.input("city","Ville du goodeal*", "text", "city", "city", errors.city, "ex: Wargnies", data.city) }}
 				{{ form.input("zipcode", "Code postal du goodeal*", "text", "zipcode", "zipcode", errors.zipcode, "ex: 59144", data.zipcode) }}
 				{{ form.inputNoRequiredNoError("start-date", "Date de début", "date", "start-date", "start-date", "ex: 20/12/2022") }}
@@ -30,7 +29,7 @@
 				{{ form.input("email", "Ton adresse mail*", "email", "email", "email", errors.email, "ex: florent.dupond@gmail.com", data.email) }}
 				{{ form.input("imageupload", "La photo de ton deal", "file", "imageupload", "imageupload", errors.image) }}
 				{{ form.textarea("description", "Décris ton deal*", "text", "description", "description", errors.message, "ex: Grand tournoi de pétanque avec plus de 300 paritcipants...", data.description) }}
-				<button class="btn type=" submit">Ajoute ton deal</button>
+				<button class="btn" type="submit">Ajoute ton deal</button>
 			</form>
 		</div>
 	</div>

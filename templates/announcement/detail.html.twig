@@ -14,11 +14,6 @@
 		<div class="container-single">
 			<div
 				class="single-card-header">
-				{# {% if announcement.ref %}
-																	<span class="flash-left">
-																		<a href="{{announcement.ref}}" class="svg-background"></a>
-																	</span>
-																{% endif %} #}
 				{% include 'Components/_button.html.twig' %}
 			</div>
 			<article class="card">
@@ -26,10 +21,6 @@
 					<h2>{{announcement.title}}</h2>
 				</div>
 				<div class="card-date-city">
-					<span class="author-line">De
-						{# {{user.firstname}}
-												{{user.lastname}} #}
-					</span>
 					<span class="date">
 						{% if announcement.dateStart %}Du
 							{{announcement.dateStart|date('d M')}}
@@ -43,10 +34,10 @@
 				</div>
 				<div class="card-info">
 					<span class="card-image">
-						<img src="{{ asset('build/images/cards/'~announcement.image~'') }}" alt="{{announcement.title}}"/>
+						<img src="{{ asset('images/cards/' ~announcement.image) }}" alt="{{announcement.title}}"/>
 					</span>
 					<span class="card-text">
-						{{announcement.message}}
+						{{announcement.message}}.
 					</span>
 				</div>
 			</article>

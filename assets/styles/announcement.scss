@@ -37,6 +37,7 @@ ul.container p {
 li.wide {
     width: 100%;
     margin-top: calc(2*var(--padding-card));
+    list-style: none;
 }
 
 article.card-single {
@@ -189,6 +190,7 @@ div.card-text {
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
     padding-top: calc(var(--padding-card-icon)/2);
+    height: 96px;
 }
 
 article.card-single div.card-info {
@@ -217,20 +219,25 @@ div.card-author span {
 }
 
 div.card-see-more {
-    align-self: flex-end;
-    border-radius: 25px;
+    height: var(--card-header-height);
     background-color: var(--color-primary);
     color: var(--color-secondary);
-    font-family: var(--font-primary-regular);
-    font-size: var(--font-size-button);
-    padding: calc(0.5*var(--padding-card)) var(--padding-card);
-    margin: 10px 0;
-
+    text-transform: uppercase;
+    line-height: 55px;
+    font-size: 12px;
+    font-family: var(--font-primary-bold);
+    cursor: pointer;
+    border-radius: 20px;
+    margin: auto;
+    width: 200px;
 }
+
+
 
 .announcement nav {
     width: var(--nav-width);
     display: flex;
+    justify-content: center;
     flex-direction: row;
     height: var(--card-header-height);
     margin: 0 auto var(--padding-card);
@@ -365,7 +372,7 @@ div.pages a {
     .announcement nav a,
     .announcement nav a:visited {
         border: 0.5px solid var(--color-primary);
-        width: 50%;
+        width: 49%;
         font-size: var(--font-size-card-date);
     }
 

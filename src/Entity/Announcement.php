@@ -5,8 +5,14 @@ namespace App\Entity;
 use App\Repository\AnnouncementRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+    //Ici on importe le package Vich, que l’on utilisera sous l’alias “Vich”
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use DateTime;
+use DateTimeInterface;
 
 #[ORM\Entity(repositoryClass: AnnouncementRepository::class)]
+#[Vich\Uploadable]
 class Announcement
 {
     #[ORM\Id]
@@ -35,6 +41,9 @@ class Announcement
     #[ORM\Column(length: 100)]
     private ?string $image = null;
 
+    #[Vich\UploadableField(mapping: 'image_file', fileNameProperty: 'image')]
+    private ?File $imageFile = null;
+
     #[ORM\Column(length: 100)]
     private ?string $city = null;
 
@@ -50,6 +59,9 @@ class Announcement
 
     #[ORM\ManyToOne(inversedBy: 'announcements')]
     private ?Category $category = null;
+
+    #[ORM\Column(type: 'datetime')]
+    private ?\DateTimeInterface $updatedAt;
 
     public function getId(): ?int
     {
@@ -152,6 +164,18 @@ class Announcement
         return $this;
     }
 
+    public function getImageFile(): ?File
+    {
+        return $this->imageFile;
+    }
+    public function setImageFile(?File $image = null): void
+    {
+        $this->imageFile = $image;
+        if ($image) {
+            $this->updatedAt = new DateTime('now');
+        }
+    }
+
     public function getCity(): ?string
     {
         return $this->city;
@@ -195,6 +219,18 @@ class Announcement
     public function setCategory(?Category $category): self
     {
         $this->category = $category;
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(\DateTimeInterface $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
 
         return $this;
     }
